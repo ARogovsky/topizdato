@@ -15,7 +15,7 @@ interface CTASectionProps {
 
 const CTASection: React.FC<CTASectionProps> = ({
   title = "Готові розпочати?",
-  description = "Приєднуйтесь до тисяч розробників та компаній, які вже працюють на платформі",
+  description = "Приєднуйтесь до платформи, це безкоштовно - ми не беремо комісій",
   primaryButtonText = "Для розробників",
   secondaryButtonText = "Для бізнесу",
   primaryButtonLink = "/for-teams",

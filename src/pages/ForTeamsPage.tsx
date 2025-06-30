@@ -30,7 +30,7 @@ const ForTeamsPage = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 overflow-hidden">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -38,22 +38,12 @@ const ForTeamsPage = () => {
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-purple-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
-                <div className="flex items-center mb-8">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mr-4">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h1 className="text-5xl font-bold text-gray-900">Для команд</h1>
-                    <p className="text-blue-600 font-semibold text-lg">Ваш шлях до успіху в IT</p>
-                  </div>
-                </div>
-                
-                <h2 className="text-4xl font-bold text-gray-800 mb-8 leading-tight">
-                  Перестаньте робити безкоштовні проекти — 
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                    {' '}починайте заробляти
+                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                  Перестаньте робити безкоштовні проекти —{' '}
+                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    починайте заробляти
                   </span>
-                </h2>
+                </h1>
 
                 <p className="text-xl text-gray-600 mb-10 leading-relaxed">
                   Об'єднайтеся з іншими талантами, працюйте над реальними проектами 
@@ -74,7 +64,7 @@ const ForTeamsPage = () => {
             </div>
 
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 rounded-3xl p-8 text-white shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 rounded-3xl p-8 text-white shadow-2xl">
                 <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full"></div>
                 <div className="absolute bottom-8 left-8 w-16 h-16 bg-white/10 rounded-full"></div>
                 

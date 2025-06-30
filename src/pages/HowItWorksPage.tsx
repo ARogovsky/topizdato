@@ -176,15 +176,15 @@ const HowItWorksPage = () => {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Star className="w-6 h-6 mr-3 text-yellow-300" />
-                    <span>Реальний досвід роботи</span>
+                    <span>Комерційний досвід роботи</span>
                   </div>
                   <div className="flex items-center">
                     <DollarSign className="w-6 h-6 mr-3 text-green-300" />
-                    <span>Стабільний дохід $500-2000</span>
+                    <span>Работа за гроші а не за досвід</span>
                   </div>
                   <div className="flex items-center">
                     <Shield className="w-6 h-6 mr-3 text-blue-300" />
-                    <span>Гарантія оплати</span>
+                    <span>Надійні замовники</span>
                   </div>
                   <div className="flex items-center">
                     <Target className="w-6 h-6 mr-3 text-purple-300" />
@@ -212,18 +212,18 @@ const HowItWorksPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 lg:order-1">
               <div className="bg-gradient-to-br from-green-500 to-blue-600 rounded-3xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6">Економія до 90%</h3>
+                <h3 className="text-2xl font-bold mb-6">Економія від 30%</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-3 bg-white/20 rounded-lg">
                     <span>Лендінг у студії</span>
-                    <span className="font-bold">$5,000</span>
+                    <span className="font-bold">15,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center p-3 bg-white/20 rounded-lg">
                     <span>Лендінг на ТОП ІЗДАТО</span>
-                    <span className="font-bold text-green-300">$500</span>
+                    <span className="font-bold text-green-300">5000 грн</span>
                   </div>
                   <div className="text-center pt-4 border-t border-white/20">
-                    <div className="text-3xl font-bold text-green-300">90% економії</div>
+                    <div className="text-3xl font-bold text-green-300">30% економії</div>
                     <div className="text-green-100">Без втрати якості</div>
                   </div>
                 </div>
@@ -350,8 +350,9 @@ const HowItWorksPage = () => {
                 Як гарантується якість роботи?
               </h3>
               <p className="text-gray-600">
-                Всі команди проходять ретельний відбір, мають рейтинги та відгуки. 
-                Ми надаємо гарантію результату або повернення коштів.
+                Ми проводимо власну систему оцінки учасників та команд. Спочатку кожен учасник має виконати solo-проект із дедлайном у 2 тижні. Це гарантує еквівалент Junior-фахівця (1-3 роки досвіду роботи). Але ми не обмежуємо рівень учасників – у нас є команди з Middle та Senior спеціалістами.<br/>
+                Далі для кожної нової команди ми запускаємо пілотний проект – це еквівалент тестовому завданню, коли учасники отримають реальний досвід та зможуть оцінити себе самі за лідербордом.<br/>
+                І лише після цього ми припускаємо команди до проектів.
               </p>
             </div>
 
@@ -360,28 +361,26 @@ const HowItWorksPage = () => {
                 Чому ціни такі низькі?
               </h3>
               <p className="text-gray-600">
-                Наші команди складаються з початківців та junior спеціалістів, 
-                які працюють за нижчими ставками для набуття досвіду.
+                Більшість команд складаються з фахівців-початківців, які готові працювати за нижчими ставками, перш за все для отримання досвіду. Але якщо вам важливий технічний рівень – ви можете вибрати команди Middle/Senior рівня, зрозуміло вже по ринку.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Як відбувається оплата?
+                Яка гарантіі?
               </h3>
               <p className="text-gray-600">
-                Оплата поетапна через ескроу-сервіс: передоплата, проміжні етапи, 
-                фінальний платіж після здачі проекту.
+                Платформа дозволяє обговорити етапи, оплату, терміни та очікуваний результат. Якщо замовник не виконує своєї частини угоди, він блокується на сайті. Якщо команда не виконує своєї частини угоди, вона блокується на сайті.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Скільки часу займає пошук команди?
+                Як швидко можна знайти команду?
               </h3>
               <p className="text-gray-600">
                 Зазвичай 1-3 дні. Після публікації проекту ви почнете отримувати 
-                заявки від команд протягом кількох годин.
+                заявки від команд протягом кількох годин. Якщо ви не отримуєте відгуків - спробуйте змінити умови або увімкнути анонімні відгуки, щоб дізнатися про причини.
               </p>
             </div>
           </div>
