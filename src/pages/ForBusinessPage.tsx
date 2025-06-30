@@ -78,7 +78,7 @@ const ForBusinessPage = () => {
                 
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                    Економія від <span className="text-green-600">30%</span> до <span className="text-green-600">67%</span> бюджету
+                    Економія від <span className="text-green-600">30%</span> бюджету
                   </h3>
                   
                   <div className="space-y-4">
@@ -93,21 +93,21 @@ const ForBusinessPage = () => {
                     <div className="flex justify-between items-center p-4 bg-green-50 rounded-xl border border-green-200">
                       <div className="flex items-center">
                         <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                        <span className="font-medium text-gray-700">Лендінг на ТОП ІЗДАТО</span>
+                        <span className="font-medium text-gray-700">Лендінг у наших команд</span>
                       </div>
                       <span className="font-bold text-green-600 text-lg">5,000 грн</span>
                     </div>
                     
                     <div className="text-center pt-6 border-t border-gray-200">
-                      <div className="text-4xl font-bold text-green-600 mb-2">від 30% економії</div>
-                      <div className="text-gray-600 font-medium">Без втрати якості</div>
+                      <div className="text-4xl font-bold text-green-600 mb-2">Ціни втричі нижчі</div>
+                      <div className="text-gray-600 font-medium">За ринком</div>
                     </div>
                   </div>
 
                   <div className="mt-8 grid grid-cols-2 gap-4">
                     <div className="text-center p-3 bg-blue-50 rounded-xl">
                       <BarChart3 className="w-6 h-6 mx-auto mb-2 text-blue-600" />
-                      <div className="text-sm font-semibold text-gray-700">Швидше у 2 рази</div>
+                      <div className="text-sm font-semibold text-gray-700">Якісно</div>
                     </div>
                     <div className="text-center p-3 bg-purple-50 rounded-xl">
                       <Globe className="w-6 h-6 mx-auto mb-2 text-purple-600" />
@@ -129,7 +129,7 @@ const ForBusinessPage = () => {
               Переваги для вашого бізнесу
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Чому тисячі компаній обирають ТОП ІЗДАТО для своїх проектів
+              Чому підрядників обирають саме у нас
             </p>
           </div>
 
@@ -176,8 +176,8 @@ const ForBusinessPage = () => {
                   <Star className="w-6 h-6 text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-2">Гарантія якості</h3>
-                  <p className="text-gray-600 text-sm">Гарантія результату або повернення коштів</p>
+                  <h3 className="font-bold text-gray-900 mb-2">Зрозуміліше молоді</h3>
+                  <p className="text-gray-600 text-sm">Будуйте бренд роботодавця разом з нами.</p>
                 </div>
               </div>
             </div>
@@ -210,12 +210,12 @@ const ForBusinessPage = () => {
                     <span className="text-red-600 font-bold line-through">15,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">ТОП ІЗДАТО</span>
+                    <span className="text-gray-600">Наша команда</span>
                     <span className="text-green-600 font-bold text-xl">5,000 грн</span>
                   </div>
                   <div className="border-t pt-4">
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-green-600">від 30% економії</span>
+                      <span className="text-2xl font-bold text-green-600">Плюс одна інтеграція</span>
                     </div>
                   </div>
                 </div>
@@ -227,8 +227,8 @@ const ForBusinessPage = () => {
                 Найпопулярніше
               </div>
               <div className="p-6 border-b">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Корпоративний сайт</h3>
-                <p className="text-gray-600">До 10 сторінок з CMS та адмін панеллю</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">CRM</h3>
+                <p className="text-gray-600">Розробка CRM системи</p>
               </div>
               <div className="p-6">
                 <div className="space-y-4">
@@ -237,12 +237,12 @@ const ForBusinessPage = () => {
                     <span className="text-red-600 font-bold line-through">35,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">ТОП ІЗДАТО</span>
+                    <span className="text-gray-600">Наша команда</span>
                     <span className="text-green-600 font-bold text-xl">12,000 грн</span>
                   </div>
                   <div className="border-t pt-4">
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-green-600">від 30% економії</span>
+                      <span className="text-2xl font-bold text-green-600">Інтеграція з ШІ у подарунок</span>
                     </div>
                   </div>
                 </div>
@@ -251,8 +251,8 @@ const ForBusinessPage = () => {
 
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="p-6 border-b">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Інтернет-магазин</h3>
-                <p className="text-gray-600">Каталог, кошик, оплата, адмін панель</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Sales Box</h3>
+                <p className="text-gray-600">AI-асистент для продаж з колл-трекінгом</p>
               </div>
               <div className="p-6">
                 <div className="space-y-4">
@@ -261,12 +261,12 @@ const ForBusinessPage = () => {
                     <span className="text-red-600 font-bold line-through">70,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">ТОП ІЗДАТО</span>
+                    <span className="text-gray-600">Наша команда</span>
                     <span className="text-green-600 font-bold text-xl">23,000 грн</span>
                   </div>
                   <div className="border-t pt-4">
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-green-600">від 30% економії</span>
+                      <span className="text-2xl font-bold text-green-600">Вміємо робити і таке</span>
                     </div>
                   </div>
                 </div>
@@ -333,7 +333,7 @@ const ForBusinessPage = () => {
               />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Отримайте результат</h3>
               <p className="text-gray-600">
-                Приймайте готовий продукт з гарантією якості
+                Приймайте готовий продукт та заощаджуйте кошти
               </p>
             </div>
           </div>
@@ -377,10 +377,10 @@ const ForBusinessPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Наші гарантії
+              Чому ми найкращі
             </h2>
             <p className="text-xl text-gray-600">
-              Ваша безпека та задоволення - наш пріоритет
+              Ваше задоволення - наш пріоритет
             </p>
           </div>
 
@@ -392,7 +392,7 @@ const ForBusinessPage = () => {
                 textColor="text-green-600"
               />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Гарантія якості</h3>
-              <p className="text-gray-600">Результат або повернення коштів</p>
+              <p className="text-gray-600">Тільки перевірені підрядники</p>
             </div>
 
             <div className="text-center p-6">
@@ -401,8 +401,8 @@ const ForBusinessPage = () => {
                 bgColor="bg-blue-100"
                 textColor="text-blue-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Дотримання термінів</h3>
-              <p className="text-gray-600">Проект буде здано вчасно</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Незрівнянна швидкість</h3>
+              <p className="text-gray-600">Команди працюють на результат, а не за зарплату</p>
             </div>
 
             <div className="text-center p-6">
@@ -411,8 +411,8 @@ const ForBusinessPage = () => {
                 bgColor="bg-purple-100"
                 textColor="text-purple-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Підтримка 24/7</h3>
-              <p className="text-gray-600">Завжди на зв'язку з вами</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Пірями контракти</h3>
+              <p className="text-gray-600">Без комісій та непотрібних витрат</p>
             </div>
 
             <div className="text-center p-6">
@@ -421,8 +421,8 @@ const ForBusinessPage = () => {
                 bgColor="bg-orange-100"
                 textColor="text-orange-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Безкоштовні правки</h3>
-              <p className="text-gray-600">До 3 раундів правок включено</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Бренд роботодавця</h3>
+              <p className="text-gray-600">Ми допоможемо вам стати зрозумілими та цікавими для молоді</p>
             </div>
           </div>
         </div>
@@ -432,7 +432,7 @@ const ForBusinessPage = () => {
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Готові заощадити від 30% до 67% бюджету?
+            Готові заощадити від 30% бюджету?
           </h2>
           <p className="text-xl text-green-100 mb-8">
             Опублікуйте ваш проект та отримайте пропозиції від перевірених команд
