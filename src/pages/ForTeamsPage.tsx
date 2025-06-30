@@ -44,14 +44,20 @@ const ForTeamsPage = () => {
               та заробляйте гроші з першого дня
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+              <Link 
+                to="/create-team"
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
+              >
                 <Code className="w-5 h-5 mr-2" />
                 Створити команду
-              </button>
-              <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center">
+              </Link>
+              <Link 
+                to="/how-it-works"
+                className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center"
+              >
                 <Coffee className="w-5 h-5 mr-2" />
                 Дізнатися більше
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -178,7 +184,7 @@ const ForTeamsPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
               <IconCircle 
                 icon={<Code className="w-8 h-8" />}
@@ -190,11 +196,11 @@ const ForTeamsPage = () => {
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Frontend (React, Vue, Angular)
+                  Frontend розробники
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Backend (Node.js, Python, PHP)
+                  Backend розробники
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
@@ -250,7 +256,7 @@ const ForTeamsPage = () => {
                 textColor="text-green-600"
                 className="mb-6"
               />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Менеджери</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Project Manager</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
@@ -266,11 +272,107 @@ const ForTeamsPage = () => {
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  QA та тестування
+                  Управління командою
                 </li>
               </ul>
               <div className="mt-6 text-center">
                 <span className="text-2xl font-bold text-green-600">$300-800</span>
+                <div className="text-gray-500">за проект</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <IconCircle 
+                icon={<Shield className="w-8 h-8" />}
+                bgColor="bg-orange-100"
+                textColor="text-orange-600"
+                className="mb-6"
+              />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">QA Engineer</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Мануальне тестування
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Автоматизоване тестування
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Тестування UI/UX
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Написання тест-кейсів
+                </li>
+              </ul>
+              <div className="mt-6 text-center">
+                <span className="text-2xl font-bold text-orange-600">$250-600</span>
+                <div className="text-gray-500">за проект</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <IconCircle 
+                icon={<Zap className="w-8 h-8" />}
+                bgColor="bg-red-100"
+                textColor="text-red-600"
+                className="mb-6"
+              />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">DevOps</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Налаштування CI/CD
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Деплой та хостинг
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Моніторинг систем
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Оптимізація продуктивності
+                </li>
+              </ul>
+              <div className="mt-6 text-center">
+                <span className="text-2xl font-bold text-red-600">$400-1000</span>
+                <div className="text-gray-500">за проект</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <IconCircle 
+                icon={<TrendingUp className="w-8 h-8" />}
+                bgColor="bg-pink-100"
+                textColor="text-pink-600"
+                className="mb-6"
+              />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Маркетинг</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Digital маркетинг
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  SMM та контент
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  SEO оптимізація
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  Аналітика та звіти
+                </li>
+              </ul>
+              <div className="mt-6 text-center">
+                <span className="text-2xl font-bold text-pink-600">$300-800</span>
                 <div className="text-gray-500">за проект</div>
               </div>
             </div>
@@ -384,14 +486,20 @@ const ForTeamsPage = () => {
             Приєднуйтесь до сотень команд, які вже працюють на платформі
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+            <Link 
+              to="/create-team"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
+            >
               <Users className="w-5 h-5 mr-2" />
               Створити команду
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+            </Link>
+            <Link 
+              to="/find-projects"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105 flex items-center justify-center"
+            >
               <Zap className="w-5 h-5 mr-2" />
               Знайти проекти
-            </button>
+            </Link>
           </div>
         </div>
       </section>
