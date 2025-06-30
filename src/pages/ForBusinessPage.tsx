@@ -47,14 +47,14 @@ const ForBusinessPage = () => {
                 </div>
                 
                 <h2 className="text-4xl font-bold text-gray-800 mb-8 leading-tight">
-                  Отримайте готовий продукт у{' '}
+                  Отримайте замовлення{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                    10 разів дешевше
+                    у три рази дешевше за ринок
                   </span>
                 </h2>
 
                 <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                  Працюйте з перевіреними командами початківців, які створюють 
+                  Працюйте з перевіреними підрядниками, які створюють 
                   якісні продукти за доступними цінами
                 </p>
 
@@ -78,7 +78,7 @@ const ForBusinessPage = () => {
                 
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                    Економія до <span className="text-green-600">90%</span> бюджету
+                    Економія від <span className="text-green-600">30%</span> до <span className="text-green-600">67%</span> бюджету
                   </h3>
                   
                   <div className="space-y-4">
@@ -87,7 +87,7 @@ const ForBusinessPage = () => {
                         <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                         <span className="font-medium text-gray-700">Лендінг у студії</span>
                       </div>
-                      <span className="font-bold text-red-600 text-lg">$5,000</span>
+                      <span className="font-bold text-red-600 text-lg">15,000 грн</span>
                     </div>
                     
                     <div className="flex justify-between items-center p-4 bg-green-50 rounded-xl border border-green-200">
@@ -95,11 +95,11 @@ const ForBusinessPage = () => {
                         <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
                         <span className="font-medium text-gray-700">Лендінг на ТОП ІЗДАТО</span>
                       </div>
-                      <span className="font-bold text-green-600 text-lg">$500</span>
+                      <span className="font-bold text-green-600 text-lg">5,000 грн</span>
                     </div>
                     
                     <div className="text-center pt-6 border-t border-gray-200">
-                      <div className="text-4xl font-bold text-green-600 mb-2">90% економії</div>
+                      <div className="text-4xl font-bold text-green-600 mb-2">від 30% економії</div>
                       <div className="text-gray-600 font-medium">Без втрати якості</div>
                     </div>
                   </div>
@@ -141,7 +141,7 @@ const ForBusinessPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 mb-2">Низькі ціни</h3>
-                  <p className="text-gray-600 text-sm">Економте до 90% бюджету порівняно з аутсорс-студіями</p>
+                  <p className="text-gray-600 text-sm">Економте від 30% до 67% бюджету порівняно з аутсорс-студіями</p>
                 </div>
               </div>
             </div>
@@ -207,15 +207,15 @@ const ForBusinessPage = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Студія розробки</span>
-                    <span className="text-red-600 font-bold line-through">$3,000-5,000</span>
+                    <span className="text-red-600 font-bold line-through">15,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">ТОП ІЗДАТО</span>
-                    <span className="text-green-600 font-bold text-xl">$300-500</span>
+                    <span className="text-green-600 font-bold text-xl">5,000 грн</span>
                   </div>
                   <div className="border-t pt-4">
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-green-600">90% економії</span>
+                      <span className="text-2xl font-bold text-green-600">від 30% економії</span>
                     </div>
                   </div>
                 </div>
@@ -234,15 +234,15 @@ const ForBusinessPage = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Студія розробки</span>
-                    <span className="text-red-600 font-bold line-through">$8,000-15,000</span>
+                    <span className="text-red-600 font-bold line-through">35,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">ТОП ІЗДАТО</span>
-                    <span className="text-green-600 font-bold text-xl">$800-1,500</span>
+                    <span className="text-green-600 font-bold text-xl">12,000 грн</span>
                   </div>
                   <div className="border-t pt-4">
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-green-600">90% економії</span>
+                      <span className="text-2xl font-bold text-green-600">від 30% економії</span>
                     </div>
                   </div>
                 </div>
@@ -258,15 +258,15 @@ const ForBusinessPage = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Студія розробки</span>
-                    <span className="text-red-600 font-bold line-through">$15,000-30,000</span>
+                    <span className="text-red-600 font-bold line-through">70,000 грн</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">ТОП ІЗДАТО</span>
-                    <span className="text-green-600 font-bold text-xl">$1,500-3,000</span>
+                    <span className="text-green-600 font-bold text-xl">23,000 грн</span>
                   </div>
                   <div className="border-t pt-4">
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-green-600">90% економії</span>
+                      <span className="text-2xl font-bold text-green-600">від 30% економії</span>
                     </div>
                   </div>
                 </div>
@@ -432,7 +432,7 @@ const ForBusinessPage = () => {
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Готові заощадити 90% бюджету?
+            Готові заощадити від 30% до 67% бюджету?
           </h2>
           <p className="text-xl text-green-100 mb-8">
             Опублікуйте ваш проект та отримайте пропозиції від перевірених команд
