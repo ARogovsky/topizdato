@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const ForEducationPage = () => {
   return (
@@ -49,12 +50,18 @@ const ForEducationPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg">
+              <Link 
+                to="#partner-form"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
+              >
                 Стати партнером
-              </button>
-              <button className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all">
+              </Link>
+              <Link 
+                to="/how-it-works"
+                className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all flex items-center justify-center"
+              >
                 Дізнатися більше
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -432,22 +439,166 @@ const ForEducationPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Готові стати партнером?
-          </h2>
-          <p className="text-xl text-purple-100 mb-8">
-            Приєднуйтесь до 50+ навчальних закладів, які вже працюють з нами
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+      {/* Partner Registration Form */}
+      <section id="partner-form" className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-6">
               Стати партнером
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
-              Завантажити презентацію
-            </button>
+            </h2>
+            <p className="text-xl text-purple-100 mb-8">
+              Заповніть форму та ми зв'яжемося з вами протягом 24 годин
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-2xl">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="institution" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Назва навчального закладу *
+                  </label>
+                  <input
+                    type="text"
+                    id="institution"
+                    name="institution"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="Наприклад: КПІ ім. Ігоря Сікорського"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contactPerson" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Контактна особа *
+                  </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    name="contactPerson"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="ПІБ контактної особи"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Телефон *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="+380 XX XXX XX XX"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="students" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Кількість студентів *
+                  </label>
+                  <select
+                    id="students"
+                    name="students"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    <option value="">Оберіть кількість</option>
+                    <option value="less-50">Менше 50 студентів</option>
+                    <option value="50-100">50-100 студентів</option>
+                    <option value="100-300">100-300 студентів</option>
+                    <option value="300-500">300-500 студентів</option>
+                    <option value="500+">500+ студентів</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="position" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Посада *
+                  </label>
+                  <select
+                    id="position"
+                    name="position"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    <option value="">Оберіть посаду</option>
+                    <option value="dean">Декан</option>
+                    <option value="head-of-department">Завідувач кафедри</option>
+                    <option value="professor">Професор</option>
+                    <option value="associate-professor">Доцент</option>
+                    <option value="senior-lecturer">Старший викладач</option>
+                    <option value="lecturer">Викладач</option>
+                    <option value="methodologist">Методист</option>
+                    <option value="other">Інша посада</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Додаткова інформація
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  placeholder="Розкажіть про ваші цілі та очікування від співпраці..."
+                ></textarea>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <input
+                  type="checkbox"
+                  id="agreement"
+                  name="agreement"
+                  required
+                  className="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                />
+                <label htmlFor="agreement" className="text-sm text-gray-600">
+                  Я погоджуюся з{' '}
+                  <a href="/terms" className="text-purple-600 hover:text-purple-700 underline">
+                    умовами співпраці
+                  </a>{' '}
+                  та обробкою персональних даних
+                </label>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
+                >
+                  <GraduationCap className="w-5 h-5 mr-2" />
+                  Відправити заявку
+                </button>
+                <button
+                  type="button"
+                  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all flex items-center justify-center"
+                >
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Завантажити презентацію
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
