@@ -89,10 +89,10 @@ const ForEducationPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Переваги для навчальних закладів
+              Переваги для освіти
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Як ТОП ІЗДАТО допомагає університетам та коледжам
+              Як ми допомагаємо університетам, коледжам та курсам
             </p>
           </div>
           
@@ -364,7 +364,7 @@ const ForEducationPage = () => {
               Що ми пропонуємо партнерам
             </h2>
             <p className="text-xl text-gray-600">
-              Комплексна підтримка для навчальних закладів
+              Комплексна підтримка для освіти
             </p>
           </div>
 

@@ -59,14 +59,20 @@ const ForBusinessPage = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+                  <Link 
+                    to="/publish-project"
+                    className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
+                  >
                     <Briefcase className="w-5 h-5 mr-2" />
                     Опублікувати проект
-                  </button>
-                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-green-600 hover:text-green-600 transition-all flex items-center justify-center">
+                  </Link>
+                  <Link 
+                    to="/pricing"
+                    className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-green-600 hover:text-green-600 transition-all flex items-center justify-center"
+                  >
                     <BarChart3 className="w-5 h-5 mr-2" />
                     Переглянути ціни
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -438,14 +444,20 @@ const ForBusinessPage = () => {
             Опублікуйте ваш проект та отримайте пропозиції від перевірених команд
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+            <Link 
+              to="/publish-project"
+              className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
+            >
               <Briefcase className="w-5 h-5 mr-2" />
               Опублікувати проект
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-600 transition-all transform hover:scale-105 flex items-center justify-center">
+            </Link>
+            <Link 
+              to="/find-team"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-600 transition-all transform hover:scale-105 flex items-center justify-center"
+            >
               <Target className="w-5 h-5 mr-2" />
               Переглянути команди
-            </button>
+            </Link>
           </div>
         </div>
       </section>
