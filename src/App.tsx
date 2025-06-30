@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import ForTeamsPage from './pages/ForTeamsPage';
@@ -18,23 +19,26 @@ import BlogPostPage from './pages/BlogPostPage';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/how-it-works" element={<HowItWorksPage />} />
-      <Route path="/for-teams" element={<ForTeamsPage />} />
-      <Route path="/for-business" element={<ForBusinessPage />} />
-      <Route path="/for-education" element={<ForEducationPage />} />
-      <Route path="/create-team" element={<CreateTeamPage />} />
-      <Route path="/find-projects" element={<FindProjectsPage />} />
-      <Route path="/learning-materials" element={<LearningMaterialsPage />} />
-      <Route path="/publish-project" element={<PublishProjectPage />} />
-      <Route path="/find-team" element={<FindTeamPage />} />
-      <Route path="/pricing" element={<PricingPage />} />
-      <Route path="/help-center" element={<HelpCenterPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/blog" element={<BlogPage />} />
-      <Route path="/blog/:id" element={<BlogPostPage />} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/for-teams" element={<ForTeamsPage />} />
+        <Route path="/for-business" element={<ForBusinessPage />} />
+        <Route path="/for-education" element={<ForEducationPage />} />
+        <Route path="/create-team" element={<CreateTeamPage />} />
+        <Route path="/find-projects" element={<FindProjectsPage />} />
+        <Route path="/learning-materials" element={<LearningMaterialsPage />} />
+        <Route path="/publish-project" element={<PublishProjectPage />} />
+        <Route path="/find-team" element={<FindTeamPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/help-center" element={<HelpCenterPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<BlogPostPage />} />
+      </Routes>
+    </>
   );
 }
 
