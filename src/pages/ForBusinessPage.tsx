@@ -72,7 +72,7 @@ const ForBusinessPage = () => {
             </div>
 
             <div className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+              <div className="bg-white rounded-3xl p-8 shadow-2xl">
                 <div className="absolute top-4 left-4 w-16 h-16 bg-green-100 rounded-full opacity-50"></div>
                 <div className="absolute bottom-4 right-4 w-20 h-20 bg-blue-100 rounded-full opacity-50"></div>
                 
