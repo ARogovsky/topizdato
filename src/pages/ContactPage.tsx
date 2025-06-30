@@ -9,10 +9,12 @@ import {
   Users,
   Briefcase,
   HelpCircle,
-  CheckCircle
+  CheckCircle,
+  Star
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import IconCircle from '../components/IconCircle';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -70,36 +72,44 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-blue-50 rounded-xl">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-8 h-8 text-blue-600" />
-              </div>
+              <IconCircle 
+                icon={<Mail className="w-8 h-8" />}
+                bgColor="bg-blue-100"
+                textColor="text-blue-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
-              <p className="text-gray-600 mb-2">support@topizda.to</p>
+              <p className="text-gray-600 mb-2">admin@topizda.to</p>
               <p className="text-sm text-gray-500">Відповідь протягом 24 годин</p>
             </div>
             
             <div className="text-center p-6 bg-green-50 rounded-xl">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-8 h-8 text-green-600" />
-              </div>
+              <IconCircle 
+                icon={<Phone className="w-8 h-8" />}
+                bgColor="bg-green-100"
+                textColor="text-green-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Телефон</h3>
               <p className="text-gray-600 mb-2">+380 44 123 45 67</p>
               <p className="text-sm text-gray-500">Пн-Пт: 9:00-18:00</p>
             </div>
             
             <div className="text-center p-6 bg-purple-50 rounded-xl">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="w-8 h-8 text-purple-600" />
-              </div>
+              <IconCircle 
+                icon={<MessageCircle className="w-8 h-8" />}
+                bgColor="bg-purple-100"
+                textColor="text-purple-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Онлайн чат</h3>
               <p className="text-gray-600 mb-2">Миттєва підтримка</p>
               <p className="text-sm text-gray-500">Доступний 24/7</p>
             </div>
             
             <div className="text-center p-6 bg-orange-50 rounded-xl">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-orange-600" />
-              </div>
+              <IconCircle 
+                icon={<MapPin className="w-8 h-8" />}
+                bgColor="bg-orange-100"
+                textColor="text-orange-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Адреса</h3>
               <p className="text-gray-600 mb-2">м. Київ, вул. Хрещатик, 1</p>
               <p className="text-sm text-gray-500">Офіс 501</p>
@@ -123,9 +133,11 @@ const ContactPage = () => {
 
             {isSubmitted ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-green-600" />
-                </div>
+                <IconCircle 
+                  icon={<CheckCircle className="w-8 h-8" />}
+                  bgColor="bg-green-100"
+                  textColor="text-green-600"
+                />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Дякуємо за звернення!</h3>
                 <p className="text-gray-600">Ми отримали ваше повідомлення і зв'яжемося з вами найближчим часом.</p>
               </div>

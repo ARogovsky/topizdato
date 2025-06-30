@@ -92,7 +92,7 @@ const ForEducationPage = () => {
               Переваги для навчальних закладів
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Як TOPIZDA.TO допомагає університетам та коледжам
+              Як ТОП ІЗДАТО допомагає університетам та коледжам
             </p>
           </div>
           

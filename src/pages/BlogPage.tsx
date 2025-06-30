@@ -52,7 +52,7 @@ const BlogPage = () => {
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
             Блог{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              TOPIZDA.TO
+              ТОП ІЗДАТО
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8">

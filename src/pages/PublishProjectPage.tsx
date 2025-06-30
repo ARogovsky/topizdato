@@ -121,7 +121,7 @@ const PublishProjectPage = () => {
                 </div>
               </div>
               <div className="p-8 bg-green-50">
-                <h3 className="text-2xl font-bold text-green-800 mb-6">TOPIZDA.TO</h3>
+                <h3 className="text-2xl font-bold text-green-800 mb-6">ТОП ІЗДАТО</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span>Простий лендінг</span>

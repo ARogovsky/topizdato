@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   Code, 
@@ -19,6 +20,9 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TestimonialCard from '../components/TestimonialCard';
+import IconCircle from '../components/IconCircle';
+import NumberCircle from '../components/NumberCircle';
 
 const ForTeamsPage = () => {
   return (
@@ -120,8 +124,8 @@ const ForTeamsPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Чому обирають TOPIZDA.TO
+            <h2 className="text-3xl font-bold text-center mb-8">
+              Чому обирають ТОП ІЗДАТО
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Переваги роботи на нашій платформі для команд розробників
@@ -194,9 +198,12 @@ const ForTeamsPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Code className="w-8 h-8 text-blue-600" />
-              </div>
+              <IconCircle 
+                icon={<Code className="w-8 h-8" />}
+                bgColor="bg-blue-100"
+                textColor="text-blue-600"
+                className="mb-6"
+              />
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Розробники</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
@@ -223,9 +230,12 @@ const ForTeamsPage = () => {
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Palette className="w-8 h-8 text-purple-600" />
-              </div>
+              <IconCircle 
+                icon={<Palette className="w-8 h-8" />}
+                bgColor="bg-purple-100"
+                textColor="text-purple-600"
+                className="mb-6"
+              />
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Дизайнери</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
@@ -252,9 +262,12 @@ const ForTeamsPage = () => {
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Briefcase className="w-8 h-8 text-green-600" />
-              </div>
+              <IconCircle 
+                icon={<Briefcase className="w-8 h-8" />}
+                bgColor="bg-green-100"
+                textColor="text-green-600"
+                className="mb-6"
+              />
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Менеджери</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
@@ -296,62 +309,29 @@ const ForTeamsPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all">
-              <div className="flex items-center mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600 font-semibold">5.0</span>
-              </div>
-              <blockquote className="text-gray-700 mb-6 italic">
-                "За 3 тижні ми створили повноцінний інтернет-магазин. 
-                Заробили $1500 кожен і отримали неоціненний досвід!"
-              </blockquote>
-              <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">Команда "WebCrafters"</div>
-                <div className="text-sm text-gray-600">E-commerce проект • 3 учасники</div>
-              </div>
-            </div>
+            <TestimonialCard
+              rating={5.0}
+              quote="За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!"
+              author="Команда 'WebCrafters'"
+              position="E-commerce проект • 3 учасники"
+              variant="gray"
+            />
 
-            <div className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all">
-              <div className="flex items-center mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600 font-semibold">5.0</span>
-              </div>
-              <blockquote className="text-gray-700 mb-6 italic">
-                "Працювали над мобільним додатком для стартапу. 
-                Клієнт був в захваті, а ми заробили по $2000!"
-              </blockquote>
-              <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">Команда "MobileDev"</div>
-                <div className="text-sm text-gray-600">Мобільний додаток • 4 учасники</div>
-              </div>
-            </div>
+            <TestimonialCard
+              rating={5.0}
+              quote="Працювали над мобільним додатком для стартапу. Клієнт був в захваті, а ми заробили по $2000!"
+              author="Команда 'MobileDev'"
+              position="Мобільний додаток • 4 учасники"
+              variant="gray"
+            />
 
-            <div className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all">
-              <div className="flex items-center mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600 font-semibold">4.9</span>
-              </div>
-              <blockquote className="text-gray-700 mb-6 italic">
-                "Створили брендинг та лендінг для IT-компанії. 
-                Тепер маємо постійного клієнта!"
-              </blockquote>
-              <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">Команда "DesignPro"</div>
-                <div className="text-sm text-gray-600">Брендинг проект • 2 учасники</div>
-              </div>
-            </div>
+            <TestimonialCard
+              rating={4.9}
+              quote="Створили брендинг та лендінг для IT-компанії. Тепер маємо постійного клієнта!"
+              author="Команда 'DesignPro'"
+              position="Брендинг проект • 2 учасники"
+              variant="gray"
+            />
           </div>
         </div>
       </section>
@@ -370,9 +350,11 @@ const ForTeamsPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
-              </div>
+              <NumberCircle 
+                number={1}
+                bgColor="bg-blue-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Реєстрація</h3>
               <p className="text-gray-600">
                 Створіть профіль, вкажіть свої навички та досвід
@@ -380,9 +362,11 @@ const ForTeamsPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
+              <NumberCircle 
+                number={2}
+                bgColor="bg-purple-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Команда</h3>
               <p className="text-gray-600">
                 Знайдіть однодумців або приєднайтеся до існуючої команди
@@ -390,9 +374,11 @@ const ForTeamsPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
+              <NumberCircle 
+                number={3}
+                bgColor="bg-green-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Проект</h3>
               <p className="text-gray-600">
                 Оберіть підходящий проект та подайте заявку
@@ -400,9 +386,11 @@ const ForTeamsPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                4
-              </div>
+              <NumberCircle 
+                number={4}
+                bgColor="bg-orange-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Заробіток</h3>
               <p className="text-gray-600">
                 Виконайте проект та отримайте оплату

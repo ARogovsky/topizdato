@@ -72,7 +72,7 @@ const HowItWorksPage = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Проекти надходять</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Бізнес публікує свої завдання, команди подають заявки, 
+                Бізнес відкриває міні-тендер, команди подають заявки, 
                 найкращі отримують можливість працювати над проектом
               </p>
               <div className="flex items-center justify-center text-purple-600 font-semibold">
@@ -91,8 +91,8 @@ const HowItWorksPage = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Результат досягнуто</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Команди виконують проекти, отримують реальний досвід і гроші, 
-                а бізнес — якісний продукт за низькою ціною
+                Команди виконують проекти, отримують гроші, 
+                а бізнес — якісний продукт за доступною ціною
               </p>
               <div className="flex items-center justify-center text-green-600 font-semibold">
                 Крок 3 <CheckCircle className="w-4 h-4 ml-2" />
@@ -218,7 +218,7 @@ const HowItWorksPage = () => {
                     <span className="font-bold">$5,000</span>
                   </div>
                   <div className="flex justify-between items-center p-3 bg-white/20 rounded-lg">
-                    <span>Лендінг на TOPIZDA</span>
+                    <span>Лендінг на ТОП ІЗДАТО</span>
                     <span className="font-bold text-green-300">$500</span>
                   </div>
                   <div className="text-center pt-4 border-t border-white/20">
@@ -303,8 +303,8 @@ const HowItWorksPage = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-blue-600" />
               </div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-              <div className="text-gray-600">Активних розробників</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
+              <div className="text-gray-600">Активних команд</div>
             </div>
 
             <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all">

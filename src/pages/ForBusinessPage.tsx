@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Briefcase, 
   DollarSign, 
@@ -17,6 +18,9 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TestimonialCard from '../components/TestimonialCard';
+import NumberCircle from '../components/NumberCircle';
+import IconCircle from '../components/IconCircle';
 
 const ForBusinessPage = () => {
   return (
@@ -89,7 +93,7 @@ const ForBusinessPage = () => {
                     <div className="flex justify-between items-center p-4 bg-green-50 rounded-xl border border-green-200">
                       <div className="flex items-center">
                         <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                        <span className="font-medium text-gray-700">Лендінг на TOPIZDA</span>
+                        <span className="font-medium text-gray-700">Лендінг на ТОП ІЗДАТО</span>
                       </div>
                       <span className="font-bold text-green-600 text-lg">$500</span>
                     </div>
@@ -125,7 +129,7 @@ const ForBusinessPage = () => {
               Переваги для вашого бізнесу
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Чому тисячі компаній обирають TOPIZDA.TO для своїх проектів
+              Чому тисячі компаній обирають ТОП ІЗДАТО для своїх проектів
             </p>
           </div>
 
@@ -206,7 +210,7 @@ const ForBusinessPage = () => {
                     <span className="text-red-600 font-bold line-through">$3,000-5,000</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">TOPIZDA.TO</span>
+                    <span className="text-gray-600">ТОП ІЗДАТО</span>
                     <span className="text-green-600 font-bold text-xl">$300-500</span>
                   </div>
                   <div className="border-t pt-4">
@@ -233,7 +237,7 @@ const ForBusinessPage = () => {
                     <span className="text-red-600 font-bold line-through">$8,000-15,000</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">TOPIZDA.TO</span>
+                    <span className="text-gray-600">ТОП ІЗДАТО</span>
                     <span className="text-green-600 font-bold text-xl">$800-1,500</span>
                   </div>
                   <div className="border-t pt-4">
@@ -257,7 +261,7 @@ const ForBusinessPage = () => {
                     <span className="text-red-600 font-bold line-through">$15,000-30,000</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">TOPIZDA.TO</span>
+                    <span className="text-gray-600">ТОП ІЗДАТО</span>
                     <span className="text-green-600 font-bold text-xl">$1,500-3,000</span>
                   </div>
                   <div className="border-t pt-4">
@@ -286,9 +290,11 @@ const ForBusinessPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
-              </div>
+              <NumberCircle 
+                number={1}
+                bgColor="bg-green-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Опублікуйте проект</h3>
               <p className="text-gray-600">
                 Детально опишіть ваш проект, вкажіть бюджет та терміни
@@ -296,9 +302,11 @@ const ForBusinessPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
+              <NumberCircle 
+                number={2}
+                bgColor="bg-blue-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Оберіть команду</h3>
               <p className="text-gray-600">
                 Переглядайте заявки, портфоліо та рейтинги команд
@@ -306,9 +314,11 @@ const ForBusinessPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
+              <NumberCircle 
+                number={3}
+                bgColor="bg-purple-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Контролюйте процес</h3>
               <p className="text-gray-600">
                 Отримуйте регулярні звіти та переглядайте прогрес
@@ -316,9 +326,11 @@ const ForBusinessPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                4
-              </div>
+              <NumberCircle 
+                number={4}
+                bgColor="bg-orange-600"
+                textColor="text-white"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Отримайте результат</h3>
               <p className="text-gray-600">
                 Приймайте готовий продукт з гарантією якості
@@ -341,65 +353,29 @@ const ForBusinessPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="flex items-center mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600 font-semibold">5.0</span>
-              </div>
-              <blockquote className="text-gray-700 mb-6 italic">
-                "Команда створила чудовий інтернет-магазин за $1,200. 
-                В студії це коштувало б $15,000!"
-              </blockquote>
-              <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">Марія К.</div>
-                <div className="text-sm text-gray-600">Fashion Store • E-commerce</div>
-                <div className="text-sm text-green-600 font-semibold">Економія: $13,800</div>
-              </div>
-            </div>
+            <TestimonialCard
+              rating={5.0}
+              quote="Команда створила чудовий інтернет-магазин за $1,200. В студії це коштувало б $15,000!"
+              author="Марія К."
+              position="Fashion Store • E-commerce"
+              savings="$13,800"
+            />
 
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="flex items-center mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600 font-semibold">5.0</span>
-              </div>
-              <blockquote className="text-gray-700 mb-6 italic">
-                "Мобільний додаток готовий за 6 тижнів. 
-                Якість на рівні, ціна в 8 разів менша!"
-              </blockquote>
-              <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">Олексій П.</div>
-                <div className="text-sm text-gray-600">Tech Startup • Mobile App</div>
-                <div className="text-sm text-green-600 font-semibold">Економія: $18,000</div>
-              </div>
-            </div>
+            <TestimonialCard
+              rating={5.0}
+              quote="Мобільний додаток готовий за 6 тижнів. Якість на рівні, ціна в 8 разів менша!"
+              author="Олексій П."
+              position="Tech Startup • Mobile App"
+              savings="$18,000"
+            />
 
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="flex items-center mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600 font-semibold">4.9</span>
-              </div>
-              <blockquote className="text-gray-700 mb-6 italic">
-                "Корпоративний сайт з CRM за $900. 
-                Тепер постійно працюємо з цією командою!"
-              </blockquote>
-              <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">Андрій С.</div>
-                <div className="text-sm text-gray-600">Business Solutions • Website</div>
-                <div className="text-sm text-green-600 font-semibold">Економія: $7,100</div>
-              </div>
-            </div>
+            <TestimonialCard
+              rating={4.9}
+              quote="Корпоративний сайт з CRM за $900. Тепер постійно працюємо з цією командою!"
+              author="Андрій С."
+              position="Business Solutions • Website"
+              savings="$7,100"
+            />
           </div>
         </div>
       </section>
@@ -418,33 +394,41 @@ const ForBusinessPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-green-600" />
-              </div>
+              <IconCircle 
+                icon={<Shield className="w-8 h-8" />}
+                bgColor="bg-green-100"
+                textColor="text-green-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Гарантія якості</h3>
               <p className="text-gray-600">Результат або повернення коштів</p>
             </div>
 
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-blue-600" />
-              </div>
+              <IconCircle 
+                icon={<Clock className="w-8 h-8" />}
+                bgColor="bg-blue-100"
+                textColor="text-blue-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Дотримання термінів</h3>
               <p className="text-gray-600">Проект буде здано вчасно</p>
             </div>
 
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-purple-600" />
-              </div>
+              <IconCircle 
+                icon={<Users className="w-8 h-8" />}
+                bgColor="bg-purple-100"
+                textColor="text-purple-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Підтримка 24/7</h3>
               <p className="text-gray-600">Завжди на зв'язку з вами</p>
             </div>
 
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-orange-600" />
-              </div>
+              <IconCircle 
+                icon={<Award className="w-8 h-8" />}
+                bgColor="bg-orange-100"
+                textColor="text-orange-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Безкоштовні правки</h3>
               <p className="text-gray-600">До 3 раундів правок включено</p>
             </div>

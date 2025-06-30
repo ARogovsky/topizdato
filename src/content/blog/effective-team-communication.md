@@ -460,7 +460,7 @@ GITHUB INSIGHTS:
 
 - [Slack Best Practices](https://slack.com/resources/using-slack/communication)
 - [Atlassian Team Playbook](https://www.atlassian.com/team-playbook)
-- [TOPIZDA.TO](/) — знайдіть команду для практики
+- [ТОП ІЗДАТО](/) — знайдіть команду для практики
 - [Figma for Teams](https://www.figma.com/teams/)
 
 **Теги:** #команда #комунікація #менеджмент #процеси #співпраця

@@ -7,5 +7,13 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  assetsInclude: ['**/*.md']
+  assetsInclude: ['**/*.md'],
+  server: {
+    hmr: {
+      overlay: true
+    },
+    watch: {
+      usePolling: true
+    }
+  }
 });

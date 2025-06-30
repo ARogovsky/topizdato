@@ -712,7 +712,7 @@ export default {
 - [Vue School](https://vueschool.io/)
 
 **Практика:**
-- [TOPIZDA.TO](/) — знайдіть команду для першого проекту
+- [ТОП ІЗДАТО](/) — знайдіть команду для першого проекту
 - [CodeSandbox](https://codesandbox.io/) — онлайн редактор
 - [GitHub](https://github.com/) — зберігайте свої проекти
 
