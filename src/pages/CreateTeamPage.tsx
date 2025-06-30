@@ -16,6 +16,8 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import IconCircle from '../components/IconCircle';
+import TestimonialCard from '../components/TestimonialCard';
 
 const CreateTeamPage = () => {
   const [selectedRole, setSelectedRole] = useState('');
@@ -64,23 +66,29 @@ const CreateTeamPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-8 h-8 text-blue-600" />
-              </div>
+              <IconCircle 
+                icon={<DollarSign className="w-8 h-8" />}
+                bgColor="bg-blue-100"
+                textColor="text-blue-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Стабільний дохід</h3>
               <p className="text-gray-600">$500-2000 з проекту для кожного учасника команди</p>
             </div>
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-purple-600" />
-              </div>
+              <IconCircle 
+                icon={<Award className="w-8 h-8" />}
+                bgColor="bg-purple-100"
+                textColor="text-purple-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Реальний досвід</h3>
               <p className="text-gray-600">Працюйте над справжніми проектами для бізнесу</p>
             </div>
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-green-600" />
-              </div>
+              <IconCircle 
+                icon={<Users className="w-8 h-8" />}
+                bgColor="bg-green-100"
+                textColor="text-green-600"
+              />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Командна робота</h3>
               <p className="text-gray-600">Навчіться працювати в професійній команді</p>
             </div>
@@ -245,57 +253,21 @@ const CreateTeamPage = () => {
             Історії успіху наших команд
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600">5.0</span>
-              </div>
-              <p className="text-gray-700 mb-4">
-                "За 3 тижні ми створили повноцінний інтернет-магазин. 
-                Заробили $1500 кожен і отримали неоціненний досвід!"
-              </p>
-              <div className="text-sm text-gray-600">
-                Команда "WebCrafters" • E-commerce проект
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600">5.0</span>
-              </div>
-              <p className="text-gray-700 mb-4">
-                "Працювали над мобільним додатком для стартапу. 
-                Клієнт був в захваті, а ми заробили по $2000!"
-              </p>
-              <div className="text-sm text-gray-600">
-                Команда "MobileDev" • Мобільний додаток
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600">4.9</span>
-              </div>
-              <p className="text-gray-700 mb-4">
-                "Створили брендинг та лендінг для IT-компанії. 
-                Тепер маємо постійного клієнта!"
-              </p>
-              <div className="text-sm text-gray-600">
-                Команда "DesignPro" • Брендинг проект
-              </div>
-            </div>
+            <TestimonialCard preset="team" variant="gray" />
+            <TestimonialCard 
+              preset="team" 
+              variant="gray"
+              quote="Працювали над мобільним додатком для стартапу. Клієнт був в захваті, а ми заробили по $2000!"
+              author="Команда 'MobileDev'"
+              position="Мобільний додаток"
+            />
+            <TestimonialCard 
+              preset="team" 
+              variant="gray"
+              quote="Створили брендинг та лендінг для IT-компанії. Тепер маємо постійного клієнта!"
+              author="Команда 'DesignPro'"
+              position="Брендинг проект"
+            />
           </div>
         </div>
       </section>

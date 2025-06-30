@@ -309,28 +309,20 @@ const ForTeamsPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              rating={5.0}
-              quote="За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!"
-              author="Команда 'WebCrafters'"
-              position="E-commerce проект • 3 учасники"
+            <TestimonialCard preset="team" variant="gray" />
+            <TestimonialCard 
+              preset="team" 
               variant="gray"
-            />
-
-            <TestimonialCard
-              rating={5.0}
               quote="Працювали над мобільним додатком для стартапу. Клієнт був в захваті, а ми заробили по $2000!"
               author="Команда 'MobileDev'"
               position="Мобільний додаток • 4 учасники"
-              variant="gray"
             />
-
-            <TestimonialCard
-              rating={4.9}
+            <TestimonialCard 
+              preset="team" 
+              variant="gray"
               quote="Створили брендинг та лендінг для IT-компанії. Тепер маємо постійного клієнта!"
               author="Команда 'DesignPro'"
               position="Брендинг проект • 2 учасники"
-              variant="gray"
             />
           </div>
         </div>

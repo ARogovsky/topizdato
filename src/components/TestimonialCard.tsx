@@ -2,12 +2,13 @@ import React from 'react';
 import { Star } from 'lucide-react';
 
 interface TestimonialCardProps {
-  rating: number;
-  quote: string;
-  author: string;
-  position: string;
+  rating?: number;
+  quote?: string;
+  author?: string;
+  position?: string;
   savings?: string;
   variant?: 'white' | 'gray';
+  preset?: 'team' | 'business' | 'education' | 'default';
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -16,8 +17,50 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   author,
   position,
   savings,
-  variant = 'white'
+  variant = 'white',
+  preset
 }) => {
+  // Контент по умолчанию
+  const defaultContent = {
+    team: {
+      rating: 5.0,
+      quote: "За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!",
+      author: "Команда 'WebCrafters'",
+      position: "E-commerce проект • 3 учасники",
+      savings: undefined
+    },
+    business: {
+      rating: 5.0,
+      quote: "Команда створила чудовий інтернет-магазин за $1,200. В студії це коштувало б $15,000!",
+      author: "Марія К.",
+      position: "Fashion Store • E-commerce",
+      savings: "$13,800"
+    },
+    education: {
+      rating: 4.9,
+      quote: "За рік співпраці 78% наших випускників знайшли роботу ще до закінчення університету.",
+      author: "КПІ ім. Ігоря Сікорського",
+      position: "Факультет інформатики",
+      savings: undefined
+    },
+    default: {
+      rating: 5.0,
+      quote: "За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!",
+      author: "Команда 'WebCrafters'",
+      position: "E-commerce проект • 3 учасники",
+      savings: undefined
+    }
+  };
+
+  // Выбираем контент: сначала проверяем пропсы, потом пресет, потом дефолт
+  const content = {
+    rating: rating ?? defaultContent[preset || 'default'].rating,
+    quote: quote ?? defaultContent[preset || 'default'].quote,
+    author: author ?? defaultContent[preset || 'default'].author,
+    position: position ?? defaultContent[preset || 'default'].position,
+    savings: savings ?? defaultContent[preset || 'default'].savings
+  };
+
   const bgClass = variant === 'gray' ? 'bg-gray-50' : 'bg-white';
   
   return (
@@ -28,16 +71,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             <Star key={i} className="w-5 h-5 fill-current" />
           ))}
         </div>
-        <span className="ml-2 text-gray-600 font-semibold">{rating}</span>
+        <span className="ml-2 text-gray-600 font-semibold">{content.rating}</span>
       </div>
       <blockquote className="text-gray-700 mb-6 italic">
-        "{quote}"
+        "{content.quote}"
       </blockquote>
       <div className="border-t pt-4">
-        <div className="font-semibold text-gray-900">{author}</div>
-        <div className="text-sm text-gray-600">{position}</div>
-        {savings && (
-          <div className="text-sm text-green-600 font-semibold">Економія: {savings}</div>
+        <div className="font-semibold text-gray-900">{content.author}</div>
+        <div className="text-sm text-gray-600">{content.position}</div>
+        {content.savings && (
+          <div className="text-sm text-green-600 font-semibold">Економія: {content.savings}</div>
         )}
       </div>
     </div>

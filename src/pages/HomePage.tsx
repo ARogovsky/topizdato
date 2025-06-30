@@ -260,26 +260,9 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              rating={5.0}
-              quote="За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!"
-              author="Команда 'WebCrafters'"
-              position="E-commerce проект • 3 учасники"
-            />
-
-            <TestimonialCard
-              rating={5.0}
-              quote="Команда створила чудовий інтернет-магазин за $1,200. В студії це коштувало б $15,000!"
-              author="Марія К."
-              position="Fashion Store • Власник бізнесу"
-            />
-
-            <TestimonialCard
-              rating={4.9}
-              quote="За рік співпраці 78% наших випускників знайшли роботу ще до закінчення університету."
-              author="КПІ ім. Ігоря Сікорського"
-              position="Факультет інформатики"
-            />
+            <TestimonialCard preset="team" />
+            <TestimonialCard preset="business" />
+            <TestimonialCard preset="education" />
           </div>
         </div>
       </section>

@@ -353,24 +353,16 @@ const ForBusinessPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              rating={5.0}
-              quote="Команда створила чудовий інтернет-магазин за $1,200. В студії це коштувало б $15,000!"
-              author="Марія К."
-              position="Fashion Store • E-commerce"
-              savings="$13,800"
-            />
-
-            <TestimonialCard
-              rating={5.0}
+            <TestimonialCard preset="business" />
+            <TestimonialCard 
+              preset="business"
               quote="Мобільний додаток готовий за 6 тижнів. Якість на рівні, ціна в 8 разів менша!"
               author="Олексій П."
               position="Tech Startup • Mobile App"
               savings="$18,000"
             />
-
-            <TestimonialCard
-              rating={4.9}
+            <TestimonialCard 
+              preset="business"
               quote="Корпоративний сайт з CRM за $900. Тепер постійно працюємо з цією командою!"
               author="Андрій С."
               position="Business Solutions • Website"
