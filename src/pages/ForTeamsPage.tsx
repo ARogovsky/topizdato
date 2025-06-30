@@ -32,76 +32,68 @@ const ForTeamsPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full opacity-20"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-purple-100 rounded-full opacity-20"></div>
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Перестаньте робити безкоштовні проекти —{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                починайте заробляти
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              Об'єднайтеся з іншими талантами, працюйте над реальними проектами 
+              та заробляйте гроші з першого дня
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+                <Code className="w-5 h-5 mr-2" />
+                Створити команду
+              </button>
+              <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center">
+                <Coffee className="w-5 h-5 mr-2" />
+                Дізнатися більше
+              </button>
+            </div>
+          </div>
+
+          {/* Stats Card */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 rounded-3xl p-8 text-white shadow-2xl">
+              <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full"></div>
+              <div className="absolute bottom-8 left-8 w-16 h-16 bg-white/10 rounded-full"></div>
               
               <div className="relative z-10">
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                  Перестаньте робити безкоштовні проекти —{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    починайте заробляти
-                  </span>
-                </h1>
-
-                <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                  Об'єднайтеся з іншими талантами, працюйте над реальними проектами 
-                  та заробляйте гроші з першого дня
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
-                    <Code className="w-5 h-5 mr-2" />
-                    Створити команду
-                  </button>
-                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all flex items-center justify-center">
-                    <Coffee className="w-5 h-5 mr-2" />
-                    Дізнатися більше
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 rounded-3xl p-8 text-white shadow-2xl">
-                <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full"></div>
-                <div className="absolute bottom-8 left-8 w-16 h-16 bg-white/10 rounded-full"></div>
+                <h3 className="text-2xl font-bold mb-8 text-center">Ваші можливості</h3>
                 
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-8 text-center">Ваші можливості</h3>
-                  
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                      <TrendingUp className="w-10 h-10 mx-auto mb-3 text-green-300" />
-                      <div className="text-2xl font-bold text-green-300">$500-2000</div>
-                      <div className="text-blue-100 text-sm">Дохід з проекту</div>
-                    </div>
-                    
-                    <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                      <Clock className="w-10 h-10 mx-auto mb-3 text-yellow-300" />
-                      <div className="text-2xl font-bold text-yellow-300">2-4 тижні</div>
-                      <div className="text-blue-100 text-sm">Тривалість проекту</div>
-                    </div>
-                    
-                    <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                      <Star className="w-10 h-10 mx-auto mb-3 text-orange-300" />
-                      <div className="text-2xl font-bold text-orange-300">4.8/5</div>
-                      <div className="text-blue-100 text-sm">Рейтинг команд</div>
-                    </div>
-                    
-                    <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                      <Shield className="w-10 h-10 mx-auto mb-3 text-purple-300" />
-                      <div className="text-2xl font-bold text-purple-300">100%</div>
-                      <div className="text-blue-100 text-sm">Гарантія оплати</div>
-                    </div>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
+                    <TrendingUp className="w-10 h-10 mx-auto mb-3 text-green-300" />
+                    <div className="text-2xl font-bold text-green-300">$500-2000</div>
+                    <div className="text-blue-100 text-sm">Дохід з проекту</div>
                   </div>
+                  
+                  <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
+                    <Clock className="w-10 h-10 mx-auto mb-3 text-yellow-300" />
+                    <div className="text-2xl font-bold text-yellow-300">2-4 тижні</div>
+                    <div className="text-blue-100 text-sm">Тривалість проекту</div>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
+                    <Star className="w-10 h-10 mx-auto mb-3 text-orange-300" />
+                    <div className="text-2xl font-bold text-orange-300">4.8/5</div>
+                    <div className="text-blue-100 text-sm">Рейтинг команд</div>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
+                    <Shield className="w-10 h-10 mx-auto mb-3 text-purple-300" />
+                    <div className="text-2xl font-bold text-purple-300">100%</div>
+                    <div className="text-blue-100 text-sm">Гарантія оплати</div>
+                  </div>
+                </div>
 
-                  <div className="mt-8 p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-blue-100">Середній заробіток:</span>
-                      <span className="font-bold text-green-300">$1,200/місяць</span>
-                    </div>
+                <div className="mt-8 p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-blue-100">Середній заробіток:</span>
+                    <span className="font-bold text-green-300">$1,200/місяць</span>
                   </div>
                 </div>
               </div>
