@@ -24,8 +24,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   const defaultContent = {
     team: {
       rating: 5.0,
-      quote: "За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!",
-      author: "Команда 'WebCrafters'",
+      quote: "За 3 тижні ми створили повноцінний бот підтримки OpenAI для інтернет-магазину. Заробили 1500грн кожен і здобули неоціненний досвід!",
+      author: "Команда 'BotCrafters'",
       position: "E-commerce проект • 3 учасники",
       savings: undefined
     },
@@ -45,8 +45,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     },
     default: {
       rating: 5.0,
-      quote: "За 3 тижні ми створили повноцінний інтернет-магазин. Заробили $1500 кожен і отримали неоціненний досвід!",
-      author: "Команда 'WebCrafters'",
+      quote: "За 3 тижні ми створили повноцінний бот підтримки OpenAI для інтернет-магазину. Заробили 1500грн кожен і здобули неоціненний досвід!",
+      author: "Команда 'BotCrafters'",
       position: "E-commerce проект • 3 учасники",
       savings: undefined
     }

@@ -36,7 +36,7 @@ const FindTeamPage = () => {
   const teams = [
     {
       id: 1,
-      name: 'WebCrafters',
+      name: 'BotCrafters',
       specialty: 'fullstack',
       members: [
         { name: 'Олексій', role: 'Frontend Developer', avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100' },
@@ -47,12 +47,12 @@ const FindTeamPage = () => {
       completedProjects: 12,
       location: 'Київ',
       hourlyRate: '$15-25',
-      skills: ['React', 'Node.js', 'MongoDB', 'Figma', 'TypeScript'],
-      description: 'Досвідчена команда full-stack розробників, що спеціалізується на створенні сучасних веб-додатків та e-commerce рішень.',
+      skills: ['React', 'Node.js', 'OpenAI API', 'Figma', 'TypeScript'],
+      description: 'Досвідчена команда full-stack розробників, що спеціалізується на створенні AI-ботів підтримки та інтеграції OpenAI рішень для бізнесу.',
       portfolio: [
-        'E-commerce платформа для Fashion Store',
-        'CRM система для малого бізнесу',
-        'Корпоративний сайт для IT компанії'
+        'AI бот підтримки для e-commerce',
+        'CRM система з OpenAI інтеграцією',
+        'Корпоративний чат-бот для IT компанії'
       ],
       availability: 'Доступна зараз',
       responseTime: '2 години'
