@@ -16,6 +16,7 @@ import HelpCenterPage from './pages/HelpCenterPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogPostPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
