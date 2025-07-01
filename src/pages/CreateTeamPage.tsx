@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Users, 
@@ -18,6 +18,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import IconCircle from '../components/IconCircle';
 import TestimonialCard from '../components/TestimonialCard';
+import { getRedirectUrl } from '../utils/domainUtils';
 
 const CreateTeamPage = () => {
   const [selectedRole, setSelectedRole] = useState('');
@@ -27,6 +28,13 @@ const CreateTeamPage = () => {
     about: ''
   });
   const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [ofertaAccepted, setOfertaAccepted] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState('');
+
+  useEffect(() => {
+    setRedirectUrl(getRedirectUrl('/thank-you'));
+  }, []);
 
   const roles = [
     { id: 'developer', name: 'Технічна', icon: Code, color: 'blue' },
@@ -73,9 +81,13 @@ const CreateTeamPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!privacyAccepted || !ofertaAccepted) {
+      alert('Будь ласка, прийміть умови політики конфіденційності та договору оферти');
+      return;
+    }
     if (validateForm()) {
-      // Handle form submission
-      console.log('Form submitted:', { role: selectedRole, ...formData });
+      // Form will be handled by Web3Forms
+      window.location.href = '/thank-you';
     }
   };
 
@@ -142,7 +154,15 @@ const CreateTeamPage = () => {
               Створити команду
             </h2>
             
-            <form className="space-y-8" onSubmit={handleSubmit}>
+            <form 
+              action="https://api.web3forms.com/submit" 
+              method="POST" 
+              className="space-y-8"
+            >
+              <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
+              <input type="hidden" name="redirect" value={redirectUrl} />
+              <input type="hidden" name="subject" value="Нова заявка на створення команди" />
+              <input type="hidden" name="selected_role" value={selectedRole} />
               {/* Role Selection */}
               <div>
                 <label className="block text-lg font-semibold text-gray-900 mb-4">
@@ -235,6 +255,47 @@ const CreateTeamPage = () => {
                 {errors.about && (
                   <p className="text-red-500 text-sm mt-1">{errors.about}</p>
                 )}
+              </div>
+
+              {/* Privacy Policy and Oferta Checkboxes */}
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    name="privacy"
+                    checked={privacyAccepted}
+                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    required
+                  />
+                  <label htmlFor="privacy" className="ml-2 text-sm text-gray-700">
+                    Я приймаю{' '}
+                    <a href="/terms" target="_blank" className="text-blue-600 hover:text-blue-800 underline">
+                      політику конфіденційності
+                    </a>{' '}
+                    та згоден з обробкою персональних даних *
+                  </label>
+                </div>
+                
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="oferta"
+                    name="oferta"
+                    checked={ofertaAccepted}
+                    onChange={(e) => setOfertaAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    required
+                  />
+                  <label htmlFor="oferta" className="ml-2 text-sm text-gray-700">
+                    Я приймаю умови{' '}
+                    <a href="/oferta" target="_blank" className="text-blue-600 hover:text-blue-800 underline">
+                      договору оферти
+                    </a>{' '}
+                    та згоден з правилами використання сервісу *
+                  </label>
+                </div>
               </div>
 
               <button

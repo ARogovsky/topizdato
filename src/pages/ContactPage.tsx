@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Mail, 
   Phone, 
@@ -15,6 +15,7 @@ import {
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import IconCircle from '../components/IconCircle';
+import { getRedirectUrl } from '../utils/domainUtils';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -26,12 +27,22 @@ const ContactPage = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [ofertaAccepted, setOfertaAccepted] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState('');
+
+  useEffect(() => {
+    setRedirectUrl(getRedirectUrl('/thank-you'));
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    if (!privacyAccepted || !ofertaAccepted) {
+      alert('Будь ласка, прийміть умови політики конфіденційності та договору оферти');
+      return;
+    }
+    // Form will be handled by Web3Forms
+    window.location.href = '/thank-you';
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -142,7 +153,13 @@ const ContactPage = () => {
                 <p className="text-gray-600">Ми отримали ваше повідомлення і зв'яжемося з вами найближчим часом.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                action="https://api.web3forms.com/submit" 
+                method="POST" 
+                className="space-y-6"
+              >
+                <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
+                <input type="hidden" name="redirect" value={redirectUrl} />
                 {/* Contact Type */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-3">
@@ -244,6 +261,47 @@ const ContactPage = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Детально опишіть ваше питання або пропозицію..."
                   />
+                </div>
+
+                {/* Privacy Policy and Oferta Checkboxes */}
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                                      <input
+                    type="checkbox"
+                    id="privacy"
+                    name="privacy"
+                    checked={privacyAccepted}
+                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    required
+                  />
+                    <label htmlFor="privacy" className="ml-2 text-sm text-gray-700">
+                      Я приймаю{' '}
+                      <a href="/terms" target="_blank" className="text-blue-600 hover:text-blue-800 underline">
+                        політику конфіденційності
+                      </a>{' '}
+                      та згоден з обробкою персональних даних *
+                    </label>
+                  </div>
+                  
+                  <div className="flex items-start">
+                                      <input
+                    type="checkbox"
+                    id="oferta"
+                    name="oferta"
+                    checked={ofertaAccepted}
+                    onChange={(e) => setOfertaAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    required
+                  />
+                    <label htmlFor="oferta" className="ml-2 text-sm text-gray-700">
+                      Я приймаю умови{' '}
+                      <a href="/oferta" target="_blank" className="text-blue-600 hover:text-blue-800 underline">
+                        договору оферти
+                      </a>{' '}
+                      та згоден з правилами використання сервісу *
+                    </label>
+                  </div>
                 </div>
 
                 <button

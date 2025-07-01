@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Briefcase, 
   DollarSign, 
@@ -16,12 +16,20 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { getRedirectUrl } from '../utils/domainUtils';
 
 const PublishProjectPage = () => {
   const [projectType, setProjectType] = useState('');
   const [skills, setSkills] = useState<string[]>([]);
   const [newSkill, setNewSkill] = useState('');
   const [files, setFiles] = useState<string[]>([]);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [ofertaAccepted, setOfertaAccepted] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState('');
+
+  useEffect(() => {
+    setRedirectUrl(getRedirectUrl('/thank-you'));
+  }, []);
 
   const projectTypes = [
     { id: 'web', name: 'Веб-сайт', description: 'Корпоративний сайт, лендінг, портфоліо' },
@@ -158,7 +166,16 @@ const PublishProjectPage = () => {
               Опублікувати проект
             </h2>
             
-            <form className="space-y-8">
+            <form 
+              action="https://api.web3forms.com/submit" 
+              method="POST" 
+              className="space-y-8"
+            >
+              <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
+              <input type="hidden" name="redirect" value={redirectUrl} />
+              <input type="hidden" name="subject" value="Новий проект для розробки" />
+              <input type="hidden" name="project_type" value={projectType} />
+              <input type="hidden" name="required_skills" value={skills.join(', ')} />
               {/* Project Type */}
               <div>
                 <label className="block text-lg font-semibold text-gray-900 mb-4">
@@ -190,6 +207,7 @@ const PublishProjectPage = () => {
                   </label>
                   <input
                     type="text"
+                    name="project_name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="Наприклад: Інтернет-магазин одягу"
                   />
@@ -200,6 +218,7 @@ const PublishProjectPage = () => {
                   </label>
                   <input
                     type="text"
+                    name="company"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="Назва вашої компанії"
                   />
@@ -212,6 +231,7 @@ const PublishProjectPage = () => {
                   Опис проекту
                 </label>
                 <textarea
+                  name="description"
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Детально опишіть що потрібно зробити, які функції повинні бути, цільову аудиторію..."
@@ -224,7 +244,7 @@ const PublishProjectPage = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Бюджет ($)
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                  <select name="budget" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     <option value="">Оберіть бюджет</option>
                     <option value="500-1000">$500-1,000</option>
                     <option value="1000-2500">$1,000-2,500</option>
@@ -237,7 +257,7 @@ const PublishProjectPage = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Терміни виконання
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                  <select name="timeline" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     <option value="">Оберіть терміни</option>
                     <option value="1-2">1-2 тижні</option>
                     <option value="2-4">2-4 тижні</option>
@@ -297,6 +317,7 @@ const PublishProjectPage = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="your@email.com"
                   />
@@ -307,6 +328,7 @@ const PublishProjectPage = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="+380 XX XXX XX XX"
                   />
@@ -328,6 +350,47 @@ const PublishProjectPage = () => {
                   >
                     Вибрати файли
                   </button>
+                </div>
+              </div>
+
+              {/* Privacy Policy and Oferta Checkboxes */}
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    name="privacy"
+                    checked={privacyAccepted}
+                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                    required
+                  />
+                  <label htmlFor="privacy" className="ml-2 text-sm text-gray-700">
+                    Я приймаю{' '}
+                    <a href="/terms" target="_blank" className="text-green-600 hover:text-green-800 underline">
+                      політику конфіденційності
+                    </a>{' '}
+                    та згоден з обробкою персональних даних *
+                  </label>
+                </div>
+                
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="oferta"
+                    name="oferta"
+                    checked={ofertaAccepted}
+                    onChange={(e) => setOfertaAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                    required
+                  />
+                  <label htmlFor="oferta" className="ml-2 text-sm text-gray-700">
+                    Я приймаю умови{' '}
+                    <a href="/oferta" target="_blank" className="text-green-600 hover:text-green-800 underline">
+                      договору оферти
+                    </a>{' '}
+                    та згоден з правилами використання сервісу *
+                  </label>
                 </div>
               </div>
 

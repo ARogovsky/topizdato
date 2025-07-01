@@ -18,6 +18,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import OfertaPage from './pages/OfertaPage';
+import ThankYouPage from './pages/ThankYouPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogPostPage />} />
         <Route path="/terms" element={<PrivacyPolicyPage />} />
         <Route path="/oferta" element={<OfertaPage />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <CookieConsent />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   GraduationCap, 
   Users, 
@@ -19,8 +19,15 @@ import {
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { getRedirectUrl } from '../utils/domainUtils';
 
 const ForEducationPage = () => {
+  const [redirectUrl, setRedirectUrl] = useState('');
+
+  useEffect(() => {
+    setRedirectUrl(getRedirectUrl('/thank-you'));
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -452,7 +459,14 @@ const ForEducationPage = () => {
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-2xl">
-            <form className="space-y-6">
+            <form 
+              action="https://api.web3forms.com/submit" 
+              method="POST" 
+              className="space-y-6"
+            >
+              <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
+              <input type="hidden" name="redirect" value={redirectUrl} />
+              <input type="hidden" name="subject" value="Нова заявка на партнерство з навчальним закладом" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="institution" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -565,21 +579,41 @@ const ForEducationPage = () => {
                 ></textarea>
               </div>
 
-              <div className="flex items-start space-x-3">
-                <input
-                  type="checkbox"
-                  id="agreement"
-                  name="agreement"
-                  required
-                  className="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
-                />
-                <label htmlFor="agreement" className="text-sm text-gray-600">
-                  Я погоджуюся з{' '}
-                  <a href="/terms" className="text-purple-600 hover:text-purple-700 underline">
-                    умовами співпраці
-                  </a>{' '}
-                  та обробкою персональних даних
-                </label>
+              {/* Privacy Policy and Oferta Checkboxes */}
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    name="privacy"
+                    required
+                    className="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                  />
+                  <label htmlFor="privacy" className="ml-2 text-sm text-gray-700">
+                    Я приймаю{' '}
+                    <a href="/terms" target="_blank" className="text-purple-600 hover:text-purple-800 underline">
+                      політику конфіденційності
+                    </a>{' '}
+                    та згоден з обробкою персональних даних *
+                  </label>
+                </div>
+                
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="oferta"
+                    name="oferta"
+                    required
+                    className="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                  />
+                  <label htmlFor="oferta" className="ml-2 text-sm text-gray-700">
+                    Я приймаю умови{' '}
+                    <a href="/oferta" target="_blank" className="text-purple-600 hover:text-purple-800 underline">
+                      договору оферти
+                    </a>{' '}
+                    та згоден з правилами використання сервісу *
+                  </label>
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
