@@ -25,9 +25,9 @@ const CreateTeamPage = () => {
   const [newSkill, setNewSkill] = useState('');
 
   const roles = [
-    { id: 'developer', name: 'Розробник', icon: Code, color: 'blue' },
-    { id: 'designer', name: 'Дизайнер', icon: Palette, color: 'purple' },
-    { id: 'pm', name: 'Проект-менеджер', icon: Briefcase, color: 'green' }
+    { id: 'developer', name: 'Технічна', icon: Code, color: 'blue' },
+    { id: 'designer', name: 'Креативна', icon: Palette, color: 'purple' },
+    { id: 'pm', name: 'Менеджмент', icon: Briefcase, color: 'green' }
   ];
 
   const addSkill = () => {
@@ -55,7 +55,7 @@ const CreateTeamPage = () => {
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Об'єднайтеся з іншими талантами, працюйте над реальними проектами 
+            Об'єднайтеся у команду, працюйте над реальними проектами 
             та заробляйте гроші разом
           </p>
         </div>
@@ -71,8 +71,8 @@ const CreateTeamPage = () => {
                 bgColor="bg-blue-100"
                 textColor="text-blue-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Стабільний дохід</h3>
-              <p className="text-gray-600">$500-2000 з проекту для кожного учасника команди</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Справжні гроші</h3>
+              <p className="text-gray-600">Досить витрачати час на марні пет-проекти, краще почніть заробляти зараз</p>
             </div>
             <div className="text-center p-6">
               <IconCircle 
@@ -80,8 +80,8 @@ const CreateTeamPage = () => {
                 bgColor="bg-purple-100"
                 textColor="text-purple-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Реальний досвід</h3>
-              <p className="text-gray-600">Працюйте над справжніми проектами для бізнесу</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Корисні навички</h3>
+              <p className="text-gray-600">Комерційний досвід, продуктове бачення, тайм менеджмент та все інше</p>
             </div>
             <div className="text-center p-6">
               <IconCircle 
@@ -89,8 +89,8 @@ const CreateTeamPage = () => {
                 bgColor="bg-green-100"
                 textColor="text-green-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Командна робота</h3>
-              <p className="text-gray-600">Навчіться працювати в професійній команді</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Швидке зростання</h3>
+              <p className="text-gray-600">Ви не закриваєте таски, а вирішуєте реальні проблеми бізнесу та росте професійно</p>
             </div>
           </div>
         </div>
