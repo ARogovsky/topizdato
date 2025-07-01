@@ -26,7 +26,7 @@ const Header = () => {
             <Link to="/for-education" className="text-gray-600 hover:text-blue-600 transition-colors">
               Для освіти
             </Link>
-            <Link to="/create-team" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <Link to="https://t.me/+ciNfUq4r3EkwOWU6" target="_blank" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               Приєднатися
             </Link>
           </div>

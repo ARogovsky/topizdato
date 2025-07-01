@@ -21,8 +21,12 @@ import TestimonialCard from '../components/TestimonialCard';
 
 const CreateTeamPage = () => {
   const [selectedRole, setSelectedRole] = useState('');
-  const [skills, setSkills] = useState<string[]>([]);
-  const [newSkill, setNewSkill] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    about: ''
+  });
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
 
   const roles = [
     { id: 'developer', name: 'Технічна', icon: Code, color: 'blue' },
@@ -30,15 +34,49 @@ const CreateTeamPage = () => {
     { id: 'pm', name: 'Менеджмент', icon: Briefcase, color: 'green' }
   ];
 
-  const addSkill = () => {
-    if (newSkill.trim() && !skills.includes(newSkill.trim())) {
-      setSkills([...skills, newSkill.trim()]);
-      setNewSkill('');
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
     }
   };
 
-  const removeSkill = (skillToRemove: string) => {
-    setSkills(skills.filter(skill => skill !== skillToRemove));
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!selectedRole) {
+      newErrors.role = 'Будь ласка, оберіть роль';
+    }
+    if (!formData.name.trim()) {
+      newErrors.name = 'Ім\'я та прізвище обов\'язкові';
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email обов\'язковий';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Введіть коректний email';
+    }
+    if (!formData.about.trim()) {
+      newErrors.about = 'Розкажіть про себе';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      // Handle form submission
+      console.log('Form submitted:', { role: selectedRole, ...formData });
+    }
   };
 
   return (
@@ -104,11 +142,11 @@ const CreateTeamPage = () => {
               Створити команду
             </h2>
             
-            <form className="space-y-8">
+            <form className="space-y-8" onSubmit={handleSubmit}>
               {/* Role Selection */}
               <div>
                 <label className="block text-lg font-semibold text-gray-900 mb-4">
-                  Оберіть свою роль
+                  Оберіть свою роль *
                 </label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {roles.map((role) => {
@@ -121,7 +159,12 @@ const CreateTeamPage = () => {
                             ? `border-${role.color}-500 bg-${role.color}-50`
                             : 'border-gray-200 hover:border-gray-300'
                         }`}
-                        onClick={() => setSelectedRole(role.id)}
+                        onClick={() => {
+                          setSelectedRole(role.id);
+                          if (errors.role) {
+                            setErrors(prev => ({ ...prev, role: '' }));
+                          }
+                        }}
                       >
                         <Icon className={`w-8 h-8 text-${role.color}-600 mb-3`} />
                         <h3 className="font-semibold text-gray-900">{role.name}</h3>
@@ -129,109 +172,69 @@ const CreateTeamPage = () => {
                     );
                   })}
                 </div>
+                {errors.role && (
+                  <p className="text-red-500 text-sm mt-2">{errors.role}</p>
+                )}
               </div>
 
               {/* Personal Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Ім'я та прізвище
+                    Ім'я та прізвище *
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      errors.name ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     placeholder="Введіть ваше ім'я"
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                    Email *
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     placeholder="your@email.com"
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
                 </div>
-              </div>
-
-              {/* Skills */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Навички та технології
-                </label>
-                <div className="flex gap-2 mb-3">
-                  <input
-                    type="text"
-                    value={newSkill}
-                    onChange={(e) => setNewSkill(e.target.value)}
-                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Наприклад: React, Figma, Scrum"
-                    onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addSkill())}
-                  />
-                  <button
-                    type="button"
-                    onClick={addSkill}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    <Plus className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-                    >
-                      {skill}
-                      <button
-                        type="button"
-                        onClick={() => removeSkill(skill)}
-                        className="hover:text-blue-600"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Experience */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Досвід роботи
-                </label>
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                  <option value="">Оберіть рівень досвіду</option>
-                  <option value="beginner">Початківець (0-1 рік)</option>
-                  <option value="junior">Junior (1-2 роки)</option>
-                  <option value="middle">Middle (2-4 роки)</option>
-                  <option value="senior">Senior (4+ років)</option>
-                </select>
-              </div>
-
-              {/* Portfolio */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Посилання на портфоліо (необов'язково)
-                </label>
-                <input
-                  type="url"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="https://your-portfolio.com"
-                />
               </div>
 
               {/* About */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Розкажіть про себе
+                  Розкажіть про себе *
                 </label>
                 <textarea
+                  name="about"
+                  value={formData.about}
+                  onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    errors.about ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   placeholder="Опишіть свій досвід, мотивацію та що ви можете принести в команду..."
                 />
+                {errors.about && (
+                  <p className="text-red-500 text-sm mt-1">{errors.about}</p>
+                )}
               </div>
 
               <button
