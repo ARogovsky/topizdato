@@ -1,6 +1,15 @@
-# 10 помилок при створенні технічного завдання
-
-*Автор: Марія Коваленко • Дата: 12 січня 2024 • Час читання: 12 хв*
+---
+id: technical-specification-mistakes
+title: 10 помилок при створенні технічного завдання
+excerpt: Найпоширеніші помилки замовників при написанні ТЗ та як їх уникнути для успішної реалізації проекту.
+category: business
+author: Марія Коваленко
+date: 2024-01-12
+readTime: 12 хв
+image: https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600
+tags: [ТЗ, проекти, бізнес]
+featured: true
+---
 
 ![Технічне завдання](https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800)
 

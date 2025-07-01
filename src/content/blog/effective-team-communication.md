@@ -1,6 +1,15 @@
-# Ефективна комунікація в IT команді
-
-*Автор: Андрій Сидоренко • Дата: 8 січня 2024 • Час читання: 10 хв*
+---
+id: effective-team-communication
+title: Ефективна комунікація в IT команді
+excerpt: Як налагодити продуктивну роботу в команді розробників: інструменти, методи та практичні поради.
+category: team
+author: Андрій Сидоренко
+date: 2024-01-08
+readTime: 10 хв
+image: https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600
+tags: [команда, комунікація, менеджмент]
+featured: false
+---
 
 ![Командна робота](https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800)
 

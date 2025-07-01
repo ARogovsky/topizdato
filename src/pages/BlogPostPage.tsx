@@ -8,17 +8,19 @@ import {
   Tag,
   Share2,
   BookOpen,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { loadBlogPost, getAllBlogPosts, type BlogPost } from '../utils/blogLoader';
+import { loadBlogPost, getAllBlogPosts, type BlogPost, type BlogPostMeta } from '../utils/blogLoader';
+import { parseMarkdown } from '../utils/markdownParser';
 
 const BlogPostPage = () => {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPostMeta[]>([]);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -31,9 +33,9 @@ const BlogPostPage = () => {
         
         if (blogPost) {
           // Get related posts from the same category
-          const allPosts = getAllBlogPosts();
+          const allPosts = await getAllBlogPosts();
           const related = allPosts
-            .filter(p => p.id !== id && p.category === blogPost.category)
+            .filter(p => p.id !== id && p.category === blogPost.meta.category)
             .slice(0, 3);
           setRelatedPosts(related);
         }
@@ -50,8 +52,8 @@ const BlogPostPage = () => {
   const handleShare = () => {
     if (navigator.share && post) {
       navigator.share({
-        title: post.title,
-        text: post.excerpt,
+        title: post.meta.title,
+        text: post.meta.excerpt,
         url: window.location.href,
       });
     } else {
@@ -120,34 +122,34 @@ const BlogPostPage = () => {
 
           <div className="mb-6">
             <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mb-4 ${
-              post.category === 'development' ? 'bg-blue-100 text-blue-800' :
-              post.category === 'business' ? 'bg-green-100 text-green-800' :
-              post.category === 'career' ? 'bg-purple-100 text-purple-800' :
-              post.category === 'tips' ? 'bg-yellow-100 text-yellow-800' :
-              post.category === 'team' ? 'bg-indigo-100 text-indigo-800' :
+              post.meta.category === 'development' ? 'bg-blue-100 text-blue-800' :
+              post.meta.category === 'business' ? 'bg-green-100 text-green-800' :
+              post.meta.category === 'career' ? 'bg-purple-100 text-purple-800' :
+              post.meta.category === 'tips' ? 'bg-yellow-100 text-yellow-800' :
+              post.meta.category === 'team' ? 'bg-indigo-100 text-indigo-800' :
               'bg-gray-100 text-gray-800'
             }`}>
-              {post.category === 'development' ? 'Розробка' :
-               post.category === 'business' ? 'Бізнес' :
-               post.category === 'career' ? 'Кар\'єра' :
-               post.category === 'tips' ? 'Поради' :
-               post.category === 'team' ? 'Командна робота' :
+              {post.meta.category === 'development' ? 'Розробка' :
+               post.meta.category === 'business' ? 'Бізнес' :
+               post.meta.category === 'career' ? 'Кар\'єра' :
+               post.meta.category === 'tips' ? 'Поради' :
+               post.meta.category === 'team' ? 'Командна робота' :
                'Інше'}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            {post.title}
+            {post.meta.title}
           </h1>
 
           <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-6">
             <div className="flex items-center">
               <User className="w-5 h-5 mr-2" />
-              {post.author}
+              {post.meta.author}
             </div>
             <div className="flex items-center">
               <Calendar className="w-5 h-5 mr-2" />
-              {new Date(post.date).toLocaleDateString('uk-UA', {
+              {new Date(post.meta.date).toLocaleDateString('uk-UA', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -155,7 +157,7 @@ const BlogPostPage = () => {
             </div>
             <div className="flex items-center">
               <Clock className="w-5 h-5 mr-2" />
-              {post.readTime}
+              {post.meta.readTime}
             </div>
             <button 
               onClick={handleShare}
@@ -167,7 +169,7 @@ const BlogPostPage = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-8">
-            {post.tags.map(tag => (
+            {post.meta.tags.map((tag: string) => (
               <span key={tag} className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
                 <Tag className="w-3 h-3 mr-1" />
                 {tag}
@@ -179,8 +181,8 @@ const BlogPostPage = () => {
         {/* Featured Image */}
         <div className="mb-12">
           <img 
-            src={post.image} 
-            alt={post.title}
+            src={post.meta.image} 
+            alt={post.meta.title}
             className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
           />
         </div>
@@ -188,43 +190,13 @@ const BlogPostPage = () => {
         {/* Article Content */}
         <div className="prose prose-lg max-w-none">
           <div className="text-xl text-gray-600 mb-8 font-medium leading-relaxed">
-            {post.excerpt}
+            {post.meta.excerpt}
           </div>
           
-          {/* Mock content since we don't have markdown parser */}
-          <div className="space-y-6 text-gray-800 leading-relaxed">
-            <p>
-              Ця стаття містить детальну інформацію про {post.title.toLowerCase()}. 
-              Тут ви знайдете практичні поради, приклади коду та покрокові інструкції.
-            </p>
-            
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Основні моменти</h2>
-            <p>
-              У цій секції розглядаються ключові аспекти теми. Матеріал структурований 
-              таким чином, щоб ви могли легко знайти потрібну інформацію та застосувати 
-              її на практиці.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Практичні приклади</h2>
-            <p>
-              Тут наведені реальні приклади та кейси, які допоможуть краще зрозуміти 
-              матеріал. Кожен приклад супроводжується детальними поясненнями.
-            </p>
-
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
-              <p className="text-blue-800">
-                <strong>Порада:</strong> Для кращого засвоєння матеріалу рекомендуємо 
-                практикувати отримані знання на реальних проектах.
-              </p>
-            </div>
-
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Висновки</h2>
-            <p>
-              Підсумовуючи, можна сказати, що розглянута тема є важливою для розвитку 
-              в IT сфері. Застосування описаних методів допоможе вам досягти кращих 
-              результатів у роботі.
-            </p>
-          </div>
+          <div 
+            className="space-y-6 text-gray-800 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }}
+          />
         </div>
 
         {/* Call to Action */}

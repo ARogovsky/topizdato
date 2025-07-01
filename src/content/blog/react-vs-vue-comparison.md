@@ -1,6 +1,15 @@
-# React vs Vue: що обрати для першого проекту
-
-*Автор: Дмитро Іваненко • Дата: 10 січня 2024 • Час читання: 15 хв*
+---
+id: react-vs-vue-comparison
+title: React vs Vue: що обрати для першого проекту
+excerpt: Порівняння популярних JavaScript фреймворків з точки зору початківця. Плюси, мінуси та рекомендації.
+category: development
+author: Дмитро Іваненко
+date: 2024-01-10
+readTime: 15 хв
+image: https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=600
+tags: [React, Vue, JavaScript]
+featured: true
+---
 
 ![React vs Vue](https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=800)
 

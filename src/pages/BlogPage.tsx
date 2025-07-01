@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Calendar, 
@@ -12,15 +12,19 @@ import {
   Users,
   Code,
   Briefcase,
-  Lightbulb
+  Lightbulb,
+  Loader2
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { getAllBlogPosts, getFeaturedBlogPosts, type BlogPost } from '../utils/blogLoader';
+import { getAllBlogPosts, getFeaturedBlogPosts, type BlogPostMeta } from '../utils/blogLoader';
 
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [allPosts, setAllPosts] = useState<BlogPostMeta[]>([]);
+  const [featuredPosts, setFeaturedPosts] = useState<BlogPostMeta[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const categories = [
     { id: 'all', name: 'Всі статті', icon: BookOpen },
@@ -31,8 +35,25 @@ const BlogPage = () => {
     { id: 'team', name: 'Командна робота', icon: Users }
   ];
 
-  const allPosts = getAllBlogPosts();
-  const featuredPosts = getFeaturedBlogPosts();
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        setLoading(true);
+        const [all, featured] = await Promise.all([
+          getAllBlogPosts(),
+          getFeaturedBlogPosts()
+        ]);
+        setAllPosts(all);
+        setFeaturedPosts(featured);
+      } catch (error) {
+        console.error('Failed to load blog posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, []);
 
   const filteredPosts = allPosts.filter(post => {
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
@@ -85,8 +106,14 @@ const BlogPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {featuredPosts.slice(0, 3).map((post) => (
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 text-blue-600 animate-spin mr-3" />
+              <span className="text-gray-600">Завантаження статей...</span>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {featuredPosts.slice(0, 3).map((post) => (
               <Link 
                 key={post.id} 
                 to={`/blog/${post.id}`}
@@ -134,7 +161,8 @@ const BlogPage = () => {
                 </div>
               </Link>
             ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 

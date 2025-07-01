@@ -1,6 +1,15 @@
-# Як початківцю-розробнику знайти свій перший проект
-
-*Автор: Олексій Петренко • Дата: 15 січня 2024 • Час читання: 8 хв*
+---
+id: beginner-developer-first-project
+title: Як початківцю-розробнику знайти свій перший проект
+excerpt: Покрокова інструкція для тих, хто тільки починає свій шлях у IT та хоче отримати перший комерційний досвід.
+category: career
+author: Олексій Петренко
+date: 2024-01-15
+readTime: 8 хв
+image: https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=600
+tags: [початківці, кар'єра, фріланс]
+featured: true
+---
 
 ![Початківець розробник](https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800)
 

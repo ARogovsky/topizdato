@@ -1,6 +1,15 @@
-# Як оцінити вартість веб-проекту
-
-*Автор: Ольга Мельник • Дата: 5 січня 2024 • Час читання: 7 хв*
+---
+id: project-cost-estimation
+title: Як оцінити вартість веб-проекту
+excerpt: Методики розрахунку вартості розробки сайтів та веб-додатків. Що впливає на ціну та як не переплатити.
+category: business
+author: Ольга Мельник
+date: 2024-01-05
+readTime: 7 хв
+image: https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600
+tags: [ціни, оцінка, проекти]
+featured: false
+---
 
 ![Оцінка проекту](https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800)
 
