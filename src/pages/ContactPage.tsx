@@ -16,6 +16,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import IconCircle from '../components/IconCircle';
 import { getRedirectUrl } from '../utils/domainUtils';
+import { trackContactForm } from '../utils/gtag';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,8 @@ const ContactPage = () => {
       alert('Будь ласка, прийміть умови політики конфіденційності та договору оферти');
       return;
     }
+    // Отправляем конверсию
+    trackContactForm();
     // Form will be handled by Web3Forms
     window.location.href = '/thank-you';
   };

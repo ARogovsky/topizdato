@@ -19,6 +19,7 @@ import Footer from '../components/Footer';
 import IconCircle from '../components/IconCircle';
 import TestimonialCard from '../components/TestimonialCard';
 import { getRedirectUrl } from '../utils/domainUtils';
+import { trackTeamRegistration } from '../utils/gtag';
 
 const CreateTeamPage = () => {
   const [selectedRole, setSelectedRole] = useState('');
@@ -86,6 +87,8 @@ const CreateTeamPage = () => {
       return;
     }
     if (validateForm()) {
+      // Отправляем конверсию
+      trackTeamRegistration();
       // Form will be handled by Web3Forms
       window.location.href = '/thank-you';
     }

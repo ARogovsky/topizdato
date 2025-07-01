@@ -17,6 +17,7 @@ import {
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getRedirectUrl } from '../utils/domainUtils';
+import { trackProjectPublish } from '../utils/gtag';
 
 const PublishProjectPage = () => {
   const [projectType, setProjectType] = useState('');
@@ -49,6 +50,18 @@ const PublishProjectPage = () => {
 
   const removeSkill = (skillToRemove: string) => {
     setSkills(skills.filter(skill => skill !== skillToRemove));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!privacyAccepted || !ofertaAccepted) {
+      alert('Будь ласка, прийміть умови політики конфіденційності та договору оферти');
+      return;
+    }
+    // Отправляем конверсию
+    trackProjectPublish();
+    // Form will be handled by Web3Forms
+    window.location.href = '/thank-you';
   };
 
   return (
@@ -170,6 +183,7 @@ const PublishProjectPage = () => {
               action="https://api.web3forms.com/submit" 
               method="POST" 
               className="space-y-8"
+              onSubmit={handleSubmit}
             >
               <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
               <input type="hidden" name="redirect" value={redirectUrl} />

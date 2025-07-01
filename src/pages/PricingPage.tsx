@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Check, 
   X, 
@@ -15,9 +15,15 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { trackPricingPage } from '../utils/gtag';
 
 const PricingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('web');
+
+  useEffect(() => {
+    // Отправляем конверсию при загрузке страницы цен
+    trackPricingPage();
+  }, []);
 
   const categories = [
     { id: 'web', name: 'Веб-розробка', icon: Code },
@@ -477,7 +483,7 @@ const PricingPage = () => {
               Переваги роботи з ТОП ІЗДАТО
             </h2>
             <p className="text-xl text-gray-600">
-              Переваги роботи з TOPIZDA.TO
+              Переваги роботи з ТОП ІЗДАТО
             </p>
           </div>
 

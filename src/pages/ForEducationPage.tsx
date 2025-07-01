@@ -20,6 +20,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { getRedirectUrl } from '../utils/domainUtils';
+import { trackEducationPartnership } from '../utils/gtag';
 
 const ForEducationPage = () => {
   const [redirectUrl, setRedirectUrl] = useState('');
@@ -27,6 +28,14 @@ const ForEducationPage = () => {
   useEffect(() => {
     setRedirectUrl(getRedirectUrl('/thank-you'));
   }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Отправляем конверсию
+    trackEducationPartnership();
+    // Form will be handled by Web3Forms
+    window.location.href = '/thank-you';
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -463,6 +472,7 @@ const ForEducationPage = () => {
               action="https://api.web3forms.com/submit" 
               method="POST" 
               className="space-y-6"
+              onSubmit={handleSubmit}
             >
               <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
               <input type="hidden" name="redirect" value={redirectUrl} />
