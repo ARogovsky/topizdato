@@ -76,6 +76,12 @@ export const CONVERSIONS = {
   PRICING_PAGE: {
     id: 'PRICING_PAGE',
     label: 'pricing_page'
+  },
+  
+  // Страница благодарности
+  THANK_YOU_PAGE: {
+    id: 'THANK_YOU_PAGE',
+    label: 'thank_you_page'
   }
 };
 
@@ -116,6 +122,14 @@ export const trackPricingPage = (value?: number) => {
   sendConversion(
     CONVERSIONS.PRICING_PAGE.id,
     CONVERSIONS.PRICING_PAGE.label,
+    value
+  );
+};
+
+export const trackThankYouPage = (value?: number) => {
+  sendConversion(
+    CONVERSIONS.THANK_YOU_PAGE.id,
+    CONVERSIONS.THANK_YOU_PAGE.label,
     value
   );
 }; 

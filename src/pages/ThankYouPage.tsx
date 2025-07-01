@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { trackThankYouPage } from '../utils/gtag';
 
 const ThankYouPage: React.FC = () => {
+  useEffect(() => {
+    // Отправляем событие TYP при загрузке страницы благодарности
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'TYP', {
+        event_category: 'conversion',
+        event_label: 'thank_you_page',
+        value: 1
+      });
+    }
+    
+    // Также отправляем стандартную конверсию
+    trackThankYouPage();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">

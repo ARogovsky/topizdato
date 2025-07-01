@@ -17,6 +17,7 @@ import Footer from '../components/Footer';
 import IconCircle from '../components/IconCircle';
 import { getRedirectUrl } from '../utils/domainUtils';
 import { trackContactForm } from '../utils/gtag';
+import { trackTelegramClick } from '../utils/outboundTracking';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -113,9 +114,17 @@ const ContactPage = () => {
                 bgColor="bg-purple-100"
                 textColor="text-purple-600"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Онлайн чат</h3>
-              <p className="text-gray-600 mb-2">Миттєва підтримка</p>
-              <p className="text-sm text-gray-500">Доступний 24/7</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Telegram</h3>
+              <a 
+                href="https://t.me/topizdato" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => trackTelegramClick('Telegram контакт')}
+                className="text-gray-600 mb-2 hover:text-purple-600 transition-colors"
+              >
+                @topizdato
+              </a>
+              <p className="text-sm text-gray-500">Миттєва підтримка</p>
             </div>
             
             <div className="text-center p-6 bg-orange-50 rounded-xl">

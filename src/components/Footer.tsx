@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Zap } from 'lucide-react';
+import { Zap, MessageCircle } from 'lucide-react';
+import { trackTelegramClick } from '../utils/outboundTracking';
 
 const Footer = () => {
   return (
@@ -50,6 +51,18 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
+          <div className="flex items-center justify-center space-x-6 mb-4">
+            <a 
+              href="https://t.me/topizdato" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => trackTelegramClick('Footer Telegram')}
+              className="flex items-center space-x-2 hover:text-white transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>Telegram</span>
+            </a>
+          </div>
           <p>&copy; 2024 ТОП ІЗДАТО. Всі права захищені.</p>
         </div>
       </div>
