@@ -24,7 +24,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li><Link to="/create-team" className="hover:text-white transition-colors">Створити команду</Link></li>
               <li><Link to="/find-projects" className="hover:text-white transition-colors">Знайти проекти</Link></li>
-              <li><Link to="/learning-materials" className="hover:text-white transition-colors">Навчальні матеріали</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition-colors">Блог</Link></li>
             </ul>
           </div>
           
@@ -40,15 +40,14 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Підтримка</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/help-center" className="hover:text-white transition-colors">Центр допомоги</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Контакти</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors">Блог</Link></li>
+              {/* <li><Link to="/help-center" className="hover:text-white transition-colors">Центр допомоги</Link></li> */}
+              {/* <li><Link to="/contact" className="hover:text-white transition-colors">Контакти</Link></li> */}
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
-          <p>&copy; 2024 ТОП ІЗДАТО. Всі права захищені.</p>
+          <p>&copy; 2024 ТОП ІЗДАТО. Всі права захищені. | <Link to="/terms" className="hover:text-white transition-colors">Політика конфіденційності</Link></p>
         </div>
       </div>
     </footer>
