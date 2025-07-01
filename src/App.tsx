@@ -17,6 +17,7 @@ import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import OfertaPage from './pages/OfertaPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogPostPage />} />
         <Route path="/terms" element={<PrivacyPolicyPage />} />
+        <Route path="/oferta" element={<OfertaPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <CookieConsent />
