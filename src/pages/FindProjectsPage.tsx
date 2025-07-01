@@ -266,10 +266,15 @@ const FindProjectsPage = () => {
                     <div className="text-sm text-gray-600">
                       Клієнт: <span className="font-semibold">{project.client.name}</span>
                     </div>
-                    <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+                    <a 
+                      href="https://t.me/+ciNfUq4r3EkwOWU6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                    >
                       Подати заявку
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               );
