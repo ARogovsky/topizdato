@@ -592,7 +592,7 @@ const ForEducationPage = () => {
                 </button>
                 <button
                   type="button"
-                  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all flex items-center justify-center"
+                  className="hidden border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all flex items-center justify-center"
                 >
                   <BookOpen className="w-5 h-5 mr-2" />
                   Завантажити презентацію
