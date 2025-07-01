@@ -41,6 +41,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Юридична інформація</h4>
             <ul className="space-y-2 text-gray-400">
               <li><Link to="/terms" className="hover:text-white transition-colors">Політика конфіденційності</Link></li>
+              <li><button onClick={() => window.dispatchEvent(new CustomEvent('openCookieSettings'))} className="hover:text-white transition-colors text-left">Налаштування cookies</button></li>
               {/* <li><Link to="/help-center" className="hover:text-white transition-colors">Центр допомоги</Link></li> */}
               {/* <li><Link to="/contact" className="hover:text-white transition-colors">Контакти</Link></li> */}
             </ul>
