@@ -87,10 +87,16 @@ const CreateTeamPage = () => {
       return;
     }
     if (validateForm()) {
-      // Отправляем конверсию
+      // Отправляем конверсию Google Analytics
       trackTeamRegistration();
-      // Form will be handled by Web3Forms
-      window.location.href = '/thank-you';
+      
+      // Даем время Google Analytics отправить событие, затем отправляем форму
+      setTimeout(() => {
+        const form = e.target as HTMLFormElement;
+        const originalOnSubmit = form.onsubmit;
+        form.onsubmit = null;
+        form.submit();
+      }, 300);
     }
   };
 
@@ -161,6 +167,7 @@ const CreateTeamPage = () => {
               action="https://api.web3forms.com/submit" 
               method="POST" 
               className="space-y-8"
+              onSubmit={handleSubmit}
             >
               <input type="hidden" name="access_key" value="f7722820-f1f5-48bf-affb-e762b4d93a77" />
               <input type="hidden" name="redirect" value={redirectUrl} />

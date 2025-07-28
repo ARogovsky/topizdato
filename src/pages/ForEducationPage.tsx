@@ -31,10 +31,17 @@ const ForEducationPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Отправляем конверсию
+    
+    // Отправляем конверсию Google Analytics
     trackEducationPartnership();
-    // Form will be handled by Web3Forms
-    window.location.href = '/thank-you';
+    
+    // Даем время Google Analytics отправить событие, затем отправляем форму
+    setTimeout(() => {
+      const form = e.target as HTMLFormElement;
+      const originalOnSubmit = form.onsubmit;
+      form.onsubmit = null;
+      form.submit();
+    }, 300);
   };
 
   return (
