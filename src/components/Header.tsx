@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Zap } from 'lucide-react';
+import { trackTelegramClick } from '../utils/outboundTracking';
 
 const Header = () => {
   return (
@@ -26,9 +27,15 @@ const Header = () => {
             <Link to="/for-education" className="text-gray-600 hover:text-blue-600 transition-colors">
               Для освіти
             </Link>
-            <Link to="https://t.me/+ciNfUq4r3EkwOWU6" target="_blank" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <a 
+              href="https://t.me/+ciNfUq4r3EkwOWU6" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              onClick={() => trackTelegramClick('Header Приєднатися')}
+            >
               Приєднатися
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -20,8 +20,8 @@ export const trackOutboundLink = (url: string, linkText?: string) => {
 // Специальное отслеживание для Telegram
 export const trackTelegramClick = (linkText?: string) => {
   if (typeof window.gtag === 'function') {
-    window.gtag('event', 'Telega', {
-      event_category: 'social',
+    window.gtag('event', 'outbound_click', {
+      event_category: 'outbound',
       event_label: 'telegram_click',
       link_text: linkText,
       value: 1
