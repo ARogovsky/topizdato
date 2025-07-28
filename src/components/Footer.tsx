@@ -53,7 +53,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
           <div className="flex items-center justify-center space-x-6 mb-4">
             <a 
-              href="https://t.me/topizdato" 
+              href="https://t.me/+ciNfUq4r3EkwOWU6" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={() => trackTelegramClick('Footer Telegram')}

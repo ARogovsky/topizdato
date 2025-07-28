@@ -7,18 +7,19 @@ declare global {
 }
 
 const GOOGLE_ADS_ID = 'AW-11390978942';
+const GA4_ID = 'G-X8SM5S50QZ';
 
-// Инициализация Google Ads
+// Инициализация Google Analytics (GA4 + Google Ads)
 export const initGoogleAds = () => {
   // Проверяем, не загружен ли уже скрипт
   if (typeof window.gtag === 'function') {
     return;
   }
 
-  // Создаем скрипт gtag
+  // Создаем скрипт gtag для GA4
   const script1 = document.createElement('script');
   script1.async = true;
-  script1.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
+  script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
   document.head.appendChild(script1);
 
   // Инициализируем dataLayer и gtag функцию
@@ -27,20 +28,29 @@ export const initGoogleAds = () => {
     window.dataLayer.push(arguments);
   };
 
-  // Конфигурируем Google Ads
+  // Конфигурируем оба трекера
   window.gtag('js', new Date());
-  window.gtag('config', GOOGLE_ADS_ID);
+  window.gtag('config', GA4_ID);          // GA4 для аналитики
+  window.gtag('config', GOOGLE_ADS_ID);   // Google Ads для конверсий
 };
 
-// Отправка конверсии
+// Отправка конверсии в Google Ads и событий в GA4
 export const sendConversion = (conversionId: string, conversionLabel: string, value?: number) => {
   if (!window.gtag) {
-    console.warn('Google Ads not initialized');
+    console.warn('Google Analytics not initialized');
     return;
   }
 
+  // Отправляем конверсию в Google Ads
   window.gtag('event', 'conversion', {
     send_to: `${GOOGLE_ADS_ID}/${conversionId}/${conversionLabel}`,
+    value: value,
+    currency: 'USD'
+  });
+
+  // Отправляем событие в GA4
+  window.gtag('event', conversionLabel, {
+    event_category: 'conversion',
     value: value,
     currency: 'USD'
   });

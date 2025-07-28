@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { trackTelegramClick } from '../utils/outboundTracking';
 
 const FindProjectsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -270,6 +271,7 @@ const FindProjectsPage = () => {
                       href="https://t.me/+ciNfUq4r3EkwOWU6" 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => trackTelegramClick('FindProjects Подати заявку')}
                       className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center"
                     >
                       Подати заявку

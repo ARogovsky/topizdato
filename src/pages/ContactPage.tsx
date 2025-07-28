@@ -124,7 +124,7 @@ const ContactPage = () => {
               />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Telegram</h3>
               <a 
-                href="https://t.me/topizdato" 
+                href="https://t.me/+ciNfUq4r3EkwOWU6" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={() => trackTelegramClick('Telegram контакт')}

@@ -8,10 +8,12 @@ declare global {
 // Отслеживание клика по внешней ссылке
 export const trackOutboundLink = (url: string, linkText?: string) => {
   if (typeof window.gtag === 'function') {
+    // Отправляем в оба трекера
     window.gtag('event', 'click', {
       event_category: 'outbound',
       event_label: url,
       link_text: linkText,
+      outbound: true,
       value: 1
     });
   }
@@ -20,11 +22,20 @@ export const trackOutboundLink = (url: string, linkText?: string) => {
 // Специальное отслеживание для Telegram
 export const trackTelegramClick = (linkText?: string) => {
   if (typeof window.gtag === 'function') {
+    // Отправляем в Google Ads для конверсий
     window.gtag('event', 'outbound_click', {
       event_category: 'outbound',
       event_label: 'telegram_click',
       link_text: linkText,
       value: 1
+    });
+
+    // Отправляем в GA4 для аналитики
+    window.gtag('event', 'click', {
+      event_category: 'outbound',
+      event_label: 'telegram',
+      link_text: linkText,
+      outbound: true
     });
   }
 };
